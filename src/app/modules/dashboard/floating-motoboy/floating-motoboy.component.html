@@ -1,0 +1,49 @@
+<ng-container>
+
+    <div class="fixed flex flex-col min-w-100 bottom-0 right-0 h-full w-full md:h-auto md:max-w-120 md:bottom-10 md:right-14 bg-white md:rounded-md min-h-80 shadow-default z-9999" [ngClass]="{'top-8': isIos}">
+        <div class="flex items-center justify-between bg-blue-800 md:rounded-tl-md md:rounded-tr-md px-6 py-6 md:py-2">
+            <div class="flex items-center">
+                <mat-icon class="text-white icon-size-6" [svgIcon]="'awesome_solid:motorcycle'"></mat-icon>
+                <span class="text-white font-bold pl-4">Solicitar malote</span>
+            </div>
+            <div (click)="closeDialog()" class="flex items-center justify-center cursor-pointer">
+                <mat-icon class="text-white icon-size-4" [svgIcon]="'awesome_solid:minus'"></mat-icon>
+            </div>
+        </div>
+
+
+        <div *ngIf="['sindico', 'admin', 'consultor'].includes(user.occupation.code) && !sent" class="p-6 h-full z-99999">
+            <div class="flex flex-col items-start justify-center mb-24">
+                <span class="font-semibold">Nossos horários de agendamento são das 9h às 17h30</span>
+                <div class="flex w-full items-center w-full justify-start mt-4">
+                    <mat-label class="w-6/12 md:w-5/12 mr-1">Data desejada para coleta:</mat-label>
+                    <input class="w-3/12 md:2/12 text-right mr-1" readonly [(ngModel)]="requestedDate" [min]="minimumDate" [matDatepickerFilter]="weekendsDatesFilter" matInput [autocomplete]="'off'" [placeholder]="'Data'" [matDatepicker]="picker1">
+                    <mat-datepicker-toggle class="w-1/12" matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker class="w-1/12" #picker1></mat-datepicker>
+                </div>
+
+            </div>
+            <div class="w-full flex justify-end mt-2">
+            <span (click)="onSendRequest()" class="flex items-center justify-center rounded-full cursor-pointer hover:bg-blue-600 text-white bg-default px-6 py-2 text-sm font-semibold">
+               <span *ngIf="!loading">Fazer solicitação</span>
+               <span *ngIf="loading">Fazendo solicitação...</span>
+            </span>
+            </div>
+        </div>
+
+        <div *ngIf="!loading && ['sindico', 'admin', 'consultor'].includes(user.occupation.code) && sent" class=" p-6 h-full z-99999">
+            <span class="flex justify-center text-primary font-semibold mb-4">Solicitação enviada com sucesso!</span>
+            <div class="flex flex-auto justify-center items-center">
+                <img class="w-60" src="assets/images/motoboy.svg">
+            </div>
+            <div class="w-full flex justify-center mt-4">
+            <span (click)="sent = false" class="flex items-center justify-center rounded-full cursor-pointer hover:bg-blue-600 text-white bg-default px-6 py-2 text-sm font-semibold">
+               <span>Nova solicitação</span>
+            </span>
+            </div>
+        </div>
+
+    </div>
+
+
+</ng-container>

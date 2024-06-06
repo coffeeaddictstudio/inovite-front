@@ -1,0 +1,175 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md shadow-default h-full min-h-100">
+    <div class="flex items-center justify-between bg-gray-600 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <mat-icon class="icon-size-8 text-white"
+                      [svgIcon]="'heroicons_outline:currency-dollar'"></mat-icon>
+            <span class="bg-blue-900 ml-2 px-2 text-blue-900">.</span>
+            <span class="text-white font-bold pl-1" style="font-size: 10px;">MA REGULAR</span>
+            <span class="bg-orange-600 px-2 ml-2 text-orange-600">.</span>
+            <span class="text-white font-bold pl-1" style="font-size: 10px;">MA PROMOÇÃO</span>
+        </div>
+    </div>
+
+    <div class="py-4 h-full">
+
+        <div class="flex flex-col items-center px-5">
+
+            <div *ngIf="loading" class="w-full">
+                <div *ngFor="let _ of [].constructor(3); let i = index" class="w-full flex flex-col cursor-pointer border border-gray-200 rounded-md px-4 py-2" [ngClass]="{'mt-1': i > 0}">
+                    <div class="flex items-center text-sm">
+                        <div class="h-5 w-1/2 bg-gray-200 rounded-md"></div>
+                    </div>
+                    <div class="flex items-center text-sm mt-1">
+                        <div class="h-8 w-1/3 bg-gray-200 rounded-md"></div>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container *ngIf="!loading">
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Gabriel</span>
+                        </div>
+                        <div class="bg-blue-900 w-9/12">
+                            <p class="text-white w-full text-center">39,81%</p>
+                        </div>
+                        <div class="bg-orange-600 w-3/12">
+                            <p class="text-white w-full text-center">20%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Driele</span>
+                        </div>
+                        <div class="bg-blue-900 w-6/12">
+                            <p class="text-white w-full text-center">39,81%</p>
+                        </div>
+                        <div class="bg-orange-600 w-6/12">
+                            <p class="text-white w-full text-center">20%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Francisco</span>
+                        </div>
+                        <div class="bg-blue-900 w-8/12">
+                            <p class="text-white w-full text-center">35,13%</p>
+                        </div>
+                        <div class="bg-orange-600 w-4/12">
+                            <p class="text-white w-full text-center">11%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Carlos</span>
+                        </div>
+                        <div class="bg-blue-900 w-7/12">
+                            <p class="text-white w-full text-center">34,44%</p>
+                        </div>
+                        <div class="bg-orange-600 w-5/12">
+                            <p class="text-white w-full text-center">14%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Leronardo</span>
+                        </div>
+                        <div class="bg-blue-900 w-6/12">
+                            <p class="text-white w-full text-center">31,96%</p>
+                        </div>
+                        <div class="bg-orange-600 w-6/12">
+                            <p class="text-white w-full text-center">15%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Pedro</span>
+                        </div>
+                        <div class="bg-blue-900 w-7/12">
+                            <p class="text-white w-full text-center">30,41%</p>
+                        </div>
+                        <div class="bg-orange-600 w-5/12">
+                            <p class="text-white w-full text-center">12%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Valéria</span>
+                        </div>
+                        <div class="bg-blue-900 w-8/12">
+                            <p class="text-white w-full text-center">23,53%</p>
+                        </div>
+                        <div class="bg-orange-600 w-4/12">
+                            <p class="text-white w-full text-center">14%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Luis F.</span>
+                        </div>
+                        <div class="bg-blue-900 w-9/12">
+                            <p class="text-white w-full text-center">22,35%</p>
+                        </div>
+                        <div class="bg-orange-600 w-3/12">
+                            <p class="text-white w-full text-center">13%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Euclides</span>
+                        </div>
+                        <div class="bg-blue-900 w-8/12">
+                            <p class="text-white w-full text-center">21,35%</p>
+                        </div>
+                        <div class="bg-orange-600 w-4/12">
+                            <p class="text-white w-full text-center">8%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col border border-gray-200 rounded-md px-4 py-2">
+                    <div class="flex items-center text-sm">
+                        <div class="w-3/12">
+                            <span class="font-semibold min-w-14">Osmar</span>
+                        </div>
+                        <div class="bg-blue-900 w-7/12">
+                            <p class="text-white w-full text-center">20,14%</p>
+                        </div>
+                        <div class="bg-orange-600 w-5/12">
+                            <p class="text-white w-full text-center">20%</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <img class="w-8 text-blue-900" src="assets/icons/partnership.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">Acordos</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

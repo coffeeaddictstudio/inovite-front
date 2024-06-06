@@ -1,0 +1,161 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md shadow-default h-full min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <span class="text-blue-900 font-bold pl-4">ORDER FILL RATE</span>
+        </div>
+    </div>
+
+    <div *ngIf="!loaded" class="py-4">
+        <div class="flex w-full">
+            <div class="w-1/2 px-4">
+                <p class="text-center">
+                    <span class="bg-blue-900 ml-2 px-2 text-blue-900">.</span>
+                    <span class="font-bold pl-1">Total Entregue</span>
+                    <span class="bg-red-500 px-2 ml-2 text-red-500">.</span>
+                    <span class="font-bold pl-1" >Ruptura</span></p>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Balas e Confeitos</span>
+                    </div>
+                    <div class="bg-blue-900 w-9/12">
+                        <p class="text-white w-full text-center">78%</p>
+                    </div>
+                    <div class="bg-red-500 w-3/12">
+                        <p class="text-white w-full text-center">22,39%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Chocolates</span>
+                    </div>
+                    <div class="bg-blue-900 w-10/12">
+                        <p class="text-white w-full text-center">82%</p>
+                    </div>
+                    <div class="bg-red-500 w-2/12">
+                        <p class="text-white w-full text-center">18,01%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Doces e Sobremesas</span>
+                    </div>
+                    <div class="bg-blue-900 w-9/12">
+                        <p class="text-white w-full text-center">83%</p>
+                    </div>
+                    <div class="bg-red-500 w-3/12">
+                        <p class="text-white w-full text-center">17,38%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Matinais</span>
+                    </div>
+                    <div class="bg-blue-900 w-10/12">
+                        <p class="text-white w-full text-center">88%</p>
+                    </div>
+                    <div class="bg-red-500 w-2/12">
+                        <p class="text-white w-full text-center">12,37%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Biscoito Doce</span>
+                    </div>
+                    <div class="bg-blue-900 w-9/12">
+                        <p class="text-white w-full text-center">77%</p>
+                    </div>
+                    <div class="bg-red-500 w-3/12">
+                        <p class="text-white w-full text-center">23,01%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Biscoito Salgado</span>
+                    </div>
+                    <div class="bg-blue-900 w-8/12">
+                        <p class="text-white w-full text-center">74%</p>
+                    </div>
+                    <div class="bg-red-500 w-4/12">
+                        <p class="text-white w-full text-center">26,39%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Lacteos</span>
+                    </div>
+                    <div class="bg-blue-900 w-7/12">
+                        <p class="text-white w-full text-center">53%</p>
+                    </div>
+                    <div class="bg-red-500 w-5/12">
+                        <p class="text-white w-full text-center">46,95%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Leite Fermentado</span>
+                    </div>
+                    <div class="bg-blue-900 w-10/12">
+                        <p class="text-white w-full text-center">90%</p>
+                    </div>
+                    <div class="bg-red-500 w-2/12">
+                        <p class="text-white w-full text-center">10,24%</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-sm mt-2">
+                    <div class="w-3/12">
+                        <span class="font-semibold min-w-14">Leite Condensado</span>
+                    </div>
+                    <div class="bg-blue-900 w-9/12">
+                        <p class="text-white w-full text-center">86%</p>
+                    </div>
+                    <div class="bg-red-500 w-3/12">
+                        <p class="text-white w-full text-center">14,25%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 flex items-center justify-center">
+                <div class="w-80">
+                    <p class="text-center">
+                        Total Entregue: <b class="text-blue-900">R$ 2.662.786,81</b><br>
+                        Ruptura: <b class="text-red-500">R$ 665.696,70</b><br>
+                        Total Pedido: <b>R$ 3.328.483,51</b>
+                    </p>
+                    <apx-chart  [series]="chart.series"
+                                [chart]="chart.chart"
+                                [labels]="chart.labels"
+                                [legend]="chart.legend"
+                                [colors]="chart.colors"
+                    >
+                        ></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loaded" class="p-4">
+        <div class="h-50 w-full bg-gray-200 rounded"></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="w-11/12 flex justify-around">
+                <div *ngFor="let fake of [].constructor(months)" class="flex flex-col justify-center items-center text-center">
+                    <span class="h-4 rounded bg-gray-200 w-1/2"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <img class="w-7 text-blue-900" src="assets/icons/growth-blue.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">EVOLUÇÃO ESTRUTURAS 100% META</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

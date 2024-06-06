@@ -1,0 +1,471 @@
+<div class="w-full">
+    <div class="block md:flex items-center justify-between w-full mb-6 mt-6 md:mb-0">
+        <div class="hidden md:flex items-center my-6 md:my-0">
+            <div>
+                <h2 class="text-2xl font-medium text-blue-800 tracking-tight leading-7 my-0 truncate">CADASTRO DE
+                    ACORDOS</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center w-full shadow-default rounded-lg w-full p-6 transition-shadow ease-in-out duration-500 mt-6">
+        <div class="md:flex items-center justify-between w-full">
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Compradores</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Osmar</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Pedro</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Valéria</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Luis F.</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Francisco</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Carlos</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Euclides</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Gabriel</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Leonardo</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Deleon</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Driele</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Pedro</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Todos</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Fornecedor</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Todos</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Estrutura</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Todas</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Regional</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Regional 1</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Regional 2</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Regional 3</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Regional 4</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Todos</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Lojas</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">1001</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1002</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1003</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1004</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1005</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Todas</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Tipo de ação</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Encarte</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">TV</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Ação interna</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Rebaixa com verba</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Prazo de validade</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Desativação</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Concorrência</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-1/12 md:px-2">
+                <mat-label>Pagamento</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">À vista</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">30/60</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">30/60/90</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">10/20/30</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-1/12 md:px-2">
+                <mat-label>Forma de pagamento</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Depósito C/c</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Bonificado</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Desconto Duplicata</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Desconto Nota</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 px-2">
+                <mat-label>Periodo</mat-label>
+                <mat-date-range-input [disabled]="loading" [rangePicker]="picker">
+                    <input ngxMask="00/00/0000" matStartDate
+                           placeholder="De">
+                    <input  ngxMask="00/00/0000" matEndDate
+                            placeholder="Até">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker startView="multi-year"
+                                       panelClass="example-month-picker">>
+                </mat-date-range-picker>
+            </mat-form-field>
+            <div class="w-full md:w-2/12 px-2">
+                <button [disabled]="loading" (click)="onLoadCards()"
+                        class="flex items-center justify-center cursor-pointer w-full md:min-w-32  bg-default hover:bg-blue-700 font-bold text-white text-center rounded-full py-3 px-8 mt-4 md:mt-0">
+                    <span>{{loading ? 'Buscando' : 'Buscar'}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div  class="md:flex md:flex-col md:flex-auto md:min-w-0 w-full px-4 xl:px-0 sm:py-6 xl:py-8">
+        <div class="md:flex md:items-center md:justify-between">
+            <div class="w-full md:min-w-1/4 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between rounded-tl-md rounded-tr-md px-6 py-2 bg-blue-900">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'heroicons_outline:shopping-cart'"></mat-icon>
+                            <span class="text-white font-bold pl-4">VENDA REALIZADA</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-blue-900">{{loading ? 'Buscando' : 'R$ 80.960,00'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-green-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-up'"></mat-icon>
+                        <span class="font-semibold">59%</span>
+                        <span class="text-gray-600">Venda Projetada <br>
+                        R$ 138.950,00
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/4 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between rounded-tl-md rounded-tr-md px-6 py-2 bg-orange-600">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'awesome_solid:bars'"></mat-icon>
+                            <span class="text-white font-bold pl-4">VOLUME REALIZADO</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-orange-600">{{loading ? 'Buscando' : '5.000'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-green-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-up'"></mat-icon>
+                        <span class="font-semibold">71%</span>
+                            <span class="text-gray-600">Volume Projetada  <br>
+                        7.000
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/4 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between bg-green-600 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'heroicons_outline:tag'"></mat-icon>
+                            <span class="text-white font-bold pl-4">RECUPERAÇÃO DE MARGEM</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-green-600">{{loading ? 'Buscando' : '22,30%'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-red-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-down'"></mat-icon>
+                        <span class="font-semibold text-red-600">-1,85% pp</span>
+                        <span class="text-gray-600">Recuperação Projetada<br>
+                        5,56%
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/4 mt-4 md:mt-0 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between bg-yellow-500 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'awesome_solid:hands-helping'"></mat-icon>
+                            <span class="text-white font-bold pl-4">ACORDO REALIZADO</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-yellow-500">{{loading ? 'Buscando' : 'R$ 3.000,00'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-red-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-up'"></mat-icon>
+                        <span class="font-semibold text-green-600">67,00%</span>
+                        <span class="text-gray-600">Projetado<br>
+                        R$ 4.500,00
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex pt-6">
+        <div class="w-1/3"></div>
+        <div class="w-1/3"></div>
+        <div class="w-1/3 flex justify-end">   <button
+            class="items-center justify-center cursor-pointer w-full md:min-w-32  bg-default hover:bg-blue-700 font-bold text-white text-center rounded-full py-3 px-8 mt-4 md:mt-0 max-w-60">
+            <span>Adicionar novo acordo</span>
+        </button></div>
+    </div>
+
+    <div class="md:flex md:flex-col md:flex-auto md:min-w-0 w-full px-4 xl:px-0 sm:py-6 xl:py-8">
+        <div class="relative">
+            <div>
+                <div class="sticky header">
+                    <div class="bg-primary-900 text-white p-4 z-999" id="{{'header1'}}">
+                        Cadastro de Acordos
+                    </div>
+                </div>
+                <div class="flex  overflow-x-auto overflow-x-custom max-w-max">
+
+                    <div class="flex flex-col  max-w-max ">
+
+                        <ng-container>
+                            <div class="flex items-center h-15 font-semibold bg-white z-99 ">
+
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    Produto
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Nome</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Fornecedor</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Regional</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Loja</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Preço Regular</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Preço Promoção</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Sell Out Unitário</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Sell In Unitário</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Volume Projetado</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Volume Realizado</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Acordo Projetado</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Acordo Realizado</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Rec. Margem</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Tipo de Ação</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Data Inicial</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Data Final</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Pagto</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Forma de Pagto</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Gerar Doc. Status e Ações</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container>
+                            <div class="flex items-center h-15">
+
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>56892</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Agua de Coco Ducoco</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>ACD Distribuidora</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Todas</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Todas</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ {{agreements.price_regular}}</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8">
+                                        R$
+                                        <input
+                                            class="w-full bg-transparent font-semibold"
+                                            cursorEnd
+                                            currencyMask
+                                            onlyNumber
+                                            [options]="{prefix: '', thousands: '.', decimal: ',', precision: '2'}"
+                                            [value]=""
+                                            [type]="'tel'"
+                                            [(ngModel)]="agreements.price_promotion"
+                                            (blur)="calculate()"
+                                            [spellcheck]="'false'"
+                                            (keydown.enter)="valueInput.blur()"
+                                            #valueInput>
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8">
+                                        R$
+                                        <input
+                                            class="w-full bg-transparent font-semibold"
+                                            cursorEnd
+                                            currencyMask
+                                            onlyNumber
+                                            [options]="{prefix: '', thousands: '.', decimal: ',', precision: '2'}"
+                                            [value]=""
+                                            [type]="'tel'"
+                                            [(ngModel)]="agreements.sell_out"
+                                            (blur)="calculate()"
+                                            [spellcheck]="'false'"
+                                            (keydown.enter)="valueInput.blur()"
+                                            #valueInput>
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8">
+                                        R$
+                                        <input
+                                            class="w-full bg-transparent font-semibold"
+                                            cursorEnd
+                                            currencyMask
+                                            onlyNumber
+                                            [value]=""
+                                            [type]="'tel'"
+                                            [(ngModel)]="agreements.sell_in"
+                                            (blur)="calculate()"
+                                            [spellcheck]="'false'"
+                                            (keydown.enter)="valueInput.blur()"
+                                            #valueInput>
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15 ">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8">
+                                        <input
+                                            class="w-full bg-transparent font-semibold"
+                                            cursorEnd
+                                            onlyNumber
+                                            [value]=""
+                                            [type]="'tel'"
+                                            [(ngModel)]="agreements.volume_projetado"
+                                            (blur)="calculate()"
+                                            [spellcheck]="'false'"
+                                            (keydown.enter)="valueInput.blur()"
+                                            #valueInput>
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>{{agreements.volume_realizado}}</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>{{agreements.acordo_projetado | currencyBRL}}</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>{{agreements.acordo_realizado | currencyBRL}}</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>{{agreements.rec_margem}}%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8 w-full">
+                                        <mat-select>
+                                            <mat-option [value]="0">ENCARTE</mat-option>
+                                            <mat-option [value]="0">TV</mat-option>
+                                            <mat-option [value]="0">PRAZO VALIDADE</mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8">
+                                        <input
+                                            class="w-full bg-transparent font-semibold"
+                                            cursorEnd
+                                            [value]=""
+                                            [type]="'tel'"
+                                            [spellcheck]="'false'"
+                                            ngxMask="00/00/0000"
+                                        >
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8">
+                                        <input
+                                            class="w-full bg-transparent font-semibold"
+                                            cursorEnd
+                                            [value]=""
+                                            [type]="'tel'"
+                                            [spellcheck]="'false'"
+                                            ngxMask="00/00/0000"
+                                        >
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8 w-full">
+                                        <mat-select>
+                                            <mat-option [value]="0">A VISTA</mat-option>
+                                            <mat-option [value]="0">30/60</mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center border border-2 rounded-md p-2 h-8 w-full">
+                                        <mat-select>
+                                            <mat-option [value]="0">Deposito</mat-option>
+                                            <mat-option [value]="0">Bonificado</mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <div class="flex items-center h-8" [matTooltip]="'Gerar Doc.'">
+                                        <a href="#"><mat-icon class="icon-size-8 text-blue-900"
+                                                              [svgIcon]="'heroicons_outline:play'"></mat-icon></a>
+                                    </div>
+                                    <div class="flex items-center h-8" [matTooltip]="'Parar'">
+                                        <a href="#"><mat-icon class="icon-size-8 text-blue-900"
+                                                              [svgIcon]="'heroicons_outline:stop'"></mat-icon></a>
+                                    </div>
+                                    <div class="flex items-center h-8" [matTooltip]="'Status'">
+                                        <a href="#"><mat-icon class="icon-size-8 text-blue-900"
+                                                              [svgIcon]="'heroicons_outline:check-circle'"></mat-icon></a>
+                                    </div>
+                                    <div class="flex items-center h-8" [matTooltip]="'Excluir'">
+                                        <a href="#"><mat-icon class="icon-size-8 text-blue-900"
+                                                              [svgIcon]="'heroicons_outline:trash'"></mat-icon></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

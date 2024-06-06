@@ -1,0 +1,48 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md shadow-default h-full min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <span class="text-blue-900 font-bold pl-4">EVOLUÇÃO REGIONAIS</span>
+        </div>
+    </div>
+
+    <div *ngIf="loaded" class="py-4">
+        <div>
+            <apx-chart [series]="chart?.series"
+                       [chart]="chart?.chart"
+                       [plotOptions]="chart?.plotOptions"
+                       [dataLabels]="chart?.dataLabels"
+                       [xaxis]="chart?.xaxis"
+                       [yaxis]="chart?.yaxis"
+                       [colors]="chart?.colors"
+                       [legend]="chart?.legend"
+            ></apx-chart>
+        </div>
+    </div>
+
+    <div *ngIf="!loaded" class="p-4">
+        <div class="h-50 w-full bg-gray-200 rounded"></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="w-11/12 flex justify-around">
+                <div *ngFor="let fake of [].constructor(months)" class="flex flex-col justify-center items-center text-center">
+                    <span class="h-4 rounded bg-gray-200 w-1/2"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <img class="w-7 text-blue-900" src="assets/icons/growth-blue.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">EVOLUÇÃO ESTRUTURAS 100% META</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

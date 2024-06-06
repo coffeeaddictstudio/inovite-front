@@ -1,0 +1,58 @@
+<ng-container>
+
+    <div class="fixed flex flex-col min-w-100 bottom-0 right-0 h-full w-full md:h-auto md:max-w-120 md:bottom-10 md:right-14 bg-white md:rounded-md min-h-80 shadow-default z-9999" [ngClass]="{'top-8': isIos}">
+        <div class="flex items-center justify-between bg-blue-800 md:rounded-tl-md md:rounded-tr-md px-6 py-6 md:py-2">
+            <div class="flex items-center">
+                <mat-icon class="text-white icon-size-6" [svgIcon]="'awesome_solid:clipboard'"></mat-icon>
+                <span class="text-white font-bold pl-4">Dê sua opinião</span>
+            </div>
+            <div (click)="closeDialog()" class="flex items-center justify-center cursor-pointer">
+                <mat-icon class="text-white icon-size-4" [svgIcon]="'awesome_solid:minus'"></mat-icon>
+            </div>
+        </div>
+
+        <div *ngIf="survey" class="p-6 z-99999">
+            <div class="text-lg text-gray-800">{{survey.question}}</div>
+            <span *ngIf="countDown > 0">Restando: {{timer}}</span>
+            <div *ngIf="error" class="text-sm text-red-500 pb-3">Selecione uma opção</div>
+
+            <div class="flex flex-col items-center">
+
+                <div class="w-full">
+
+                    <mat-radio-group class="flex flex-col items-start"
+                                     [(ngModel)]="answerVoted">
+                        <mat-radio-button [color]="'primary'" class="my-2" *ngFor="let answer of survey.answers" [value]="answer.id">
+                            {{answer.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+
+                    <div class="w-full flex justify-center mt-2">
+                    <span (click)="onVoted()" class="rounded-full cursor-pointer hover:bg-blue-600 text-white bg-default px-6 py-2 text-sm font-semibold">
+                        <span *ngIf="!saving">Votar</span>
+                        <span *ngIf="saving">Votando...</span>
+                    </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="!loading && !survey" class="p-6 z-99999">
+            <span class="text-sm">Nenhuma enquete em andamento</span>
+            <div class="flex flex-auto justify-center items-center my-4">
+                <img class="w-60" src="assets/icons/survey/blankstate.svg">
+            </div>
+            <div class="w-full flex justify-center mt-2">
+            <span [routerLink]="'/enquete/formulario'" class="flex items-center justify-center rounded-full cursor-pointer hover:bg-blue-600 text-white bg-default px-6 py-2 text-sm font-semibold">
+                <mat-icon class="icon-size-3 text-white mr-2" [svgIcon]="'awesome_solid:plus'"></mat-icon>
+                <span>Nova enquete</span>
+            </span>
+            </div>
+        </div>
+
+    </div>
+
+
+</ng-container>

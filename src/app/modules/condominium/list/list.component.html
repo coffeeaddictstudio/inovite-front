@@ -1,0 +1,60 @@
+<div class="flex flex-col flex-auto min-w-0 px-4 xl:px-0 mt-16 md:mt-0 py-6">
+    <div class="flex flex-wrap w-full max-w-screen-xl mx-auto">
+
+        <!-- Header -->
+        <div class="hidden md:flex items-center justify-between w-full">
+            <div class="flex items-center my-6 md:my-0">
+                <div>
+                    <h2 class="text-2xl font-medium text-blue-800 tracking-tight leading-7 my-0 truncate">Empresas</h2>
+                </div>
+            </div>
+            <div class="w-full md:w-1/12 md:ml-2 mt-2 md:mt-0">
+                <button (click)="create()" mat-flat-button [color]="'primary'" class="text-white w-full">
+                    Criar Empresa
+                </button>
+            </div>
+        </div>
+
+        <div class="md:flex w-full py-4">
+
+            <mat-form-field class="w-full md:w-10/12 mb-0 md:mr-2">
+                <input matInput [autocomplete]="'off'" (keyup.enter)="onSearch()" [formControl]="searchControl" [placeholder]="'Busque por palavra chave...'">
+            </mat-form-field>
+
+            <div class="w-full md:w-2/12 md:ml-2 mt-2 md:mt-0">
+                <button (click)="onSearch()" mat-flat-button [color]="'primary'" class="text-white w-full">
+                    Pesquisar
+                </button>
+            </div>
+
+        </div>
+
+        <div class="flex flex-wrap items-start w-full mt-4 md: mt-0">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-y-4 md:gap-x-4 w-full">
+                <div *ngFor="let condominium of condominiums" (click)="selectCondominium(condominium)" class="relative flex flex-col cursor-pointer shadow-md border-0 rounded-lg hover:shadow-lg bg-card transform transition-shadow ease-in-out duration-150">
+                    <div class="flex flex-col w-full filter-article">
+                        <img class="object-cover border-0 h-40 rounded-tl-lg rounded-tr-lg"
+                             [src]="'https://s3-sa-east-1.amazonaws.com/cipa-digital-mobile-condominios/' + condominium.code + '.jpg'"
+                             (error)="img.src = 'assets/images/listagem-condominio-sem-imagem2.jpg'"
+                             alt=""
+                             #img
+                        >
+                        <div class="my-5 text-center">
+                            <div class="text-md font-semibold leading-tight">
+                                {{condominium.id}} - {{condominium.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!condominiums || condominiums && !condominiums.length" class="w-full flex flex-col items-center justify-center mt-10">
+            <img class="w-140" src="assets/images/listagem-condominio-sem-imagem2.jpg" alt="">
+            <div class="font-medium text-gray-600">
+                Nenhuma empresa encontrada.
+            </div>
+        </div>
+    </div>
+</div>
+

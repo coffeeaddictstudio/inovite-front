@@ -1,0 +1,34 @@
+<ng-container>
+
+    <div class="fixed flex flex-col min-w-100 bottom-0 right-0 h-full w-full md:h-auto md:max-w-120 md:bottom-10 md:right-14 bg-white md:rounded-md min-h-80 shadow-default z-9999" [ngClass]="{'top-8': isIos}">
+        <div class="flex items-center justify-between bg-blue-800 md:rounded-tl-md md:rounded-tr-md px-6 py-6 md:py-2">
+            <div class="flex items-center">
+                <mat-icon class="text-white icon-size-6" [svgIcon]="'awesome_solid:check'"></mat-icon>
+                <span class="text-white font-bold pl-4">Aprovação de edital</span>
+            </div>
+            <div (click)="closeDialog()" class="flex items-center justify-center cursor-pointer">
+                <mat-icon class="text-white icon-size-4" [svgIcon]="'awesome_solid:minus'"></mat-icon>
+            </div>
+        </div>
+
+        <div *ngIf="assembly" class="p-6 z-99999">
+            <span class="text-sm">Há {{totalNotices}} {{totalNotices > 1 ? 'editais' : 'edital'}} aguardando sua aprovação</span>
+            <div class="w-full flex justify-center mt-8">
+                <span (click)="openNoticeDialog()"
+                      class="flex items-center justify-center rounded-full cursor-pointer hover:bg-blue-600 text-white bg-default px-6 py-2 text-sm font-semibold">
+                    <span>Visualizar edital</span>
+                </span>
+            </div>
+        </div>
+
+        <div *ngIf="!loading && !assembly" class="text-center p-6 z-99999">
+            <span class="text-sm">Nenhum edital aguardando sua aprovação</span>
+            <div class="flex flex-auto justify-center items-center my-4">
+                <img class="w-60" src="assets/icons/survey/blankstate.svg">
+            </div>
+        </div>
+
+    </div>
+
+
+</ng-container>

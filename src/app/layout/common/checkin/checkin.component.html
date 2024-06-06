@@ -1,0 +1,3 @@
+<button *ngIf="appService.hasPermission('operational_manager_view') && isMobile" (click)="scan()" mat-icon-button>
+    <mat-icon class="text-blue-600 icon-size-6" [svgIcon]="'heroicons_outline:qrcode'"></mat-icon>
+</button>

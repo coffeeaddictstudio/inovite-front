@@ -1,0 +1,595 @@
+<div class="w-full">
+    <div class="block md:flex items-center justify-between w-full mb-6 mt-6 md:mb-0">
+        <div class="hidden md:flex items-center my-6 md:my-0">
+            <div>
+                <h2 class="text-2xl font-medium text-blue-800 tracking-tight leading-7 my-0 truncate">DASH PROMOCIONAL</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center w-full shadow-default rounded-lg w-full p-6 transition-shadow ease-in-out duration-500 mt-6">
+        <div class="md:flex items-center justify-between w-full">
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Regional</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Regional 1</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Regional 2</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Regional 3</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Regional 4</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Todos</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Lojas</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">1001</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1002</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1003</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1004</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">1005</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Todas</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Compradores</mat-label>
+                <mat-select>
+                    <mat-option [disabled]="loading" [value]="0">Osmar</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Pedro</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Valéria</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Luis F.</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Francisco</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Carlos</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Euclides</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Gabriel</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Leonardo</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Deleon</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Driele</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Pedro</mat-option>
+                    <mat-option [disabled]="loading" [value]="0">Todos</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Estrutura</mat-label>
+                <mat-select [disabled]="loading" >
+                    <mat-option [value]="0">Todas</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 md:px-2">
+                <mat-label>Fornecedores</mat-label>
+                <mat-select [disabled]="loading" >
+                    <mat-option [value]="0">Todos</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 px-2">
+                <mat-label>Periodo Anterior</mat-label>
+                <mat-date-range-input [disabled]="loading" [rangePicker]="picker">
+                    <input ngxMask="00/00/0000" matStartDate
+                           placeholder="De">
+                    <input  ngxMask="00/00/0000" matEndDate
+                           placeholder="Até">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker startView="multi-year"
+                                       panelClass="example-month-picker">>
+                </mat-date-range-picker>
+            </mat-form-field>
+            <mat-form-field class="w-full md:w-2/12 px-2">
+                <mat-label>Periodo Atual</mat-label>
+                <mat-date-range-input [disabled]="loading" [rangePicker]="picker2">
+                    <input ngxMask="00/00/0000" matStartDate
+                           placeholder="De">
+                    <input  ngxMask="00/00/0000" matEndDate
+                            placeholder="Até">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker2 startView="multi-year"
+                                       panelClass="example-month-picker">>
+                </mat-date-range-picker>
+            </mat-form-field>
+            <div class="w-full md:w-2/12 px-2">
+                <button [disabled]="loading" (click)="onLoadCards()"
+                        class="flex items-center justify-center cursor-pointer w-full md:min-w-32  bg-default hover:bg-blue-700 font-bold text-white text-center rounded-full py-3 px-8 mt-4 md:mt-0">
+                    <span>{{loading ? 'Buscando' : 'Buscar'}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div  class="md:flex md:flex-col md:flex-auto md:min-w-0 w-full px-4 xl:px-0 sm:py-6 xl:py-8">
+        <div class="md:flex md:items-center md:justify-between">
+            <div class="w-full md:min-w-1/6 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between rounded-tl-md rounded-tr-md px-6 py-2 bg-red-700">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'heroicons_outline:shopping-cart'"></mat-icon>
+                                <span class="text-white font-bold pl-4 text-sm">VENDA PROMOÇÃO</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-red-700">{{loading ? 'Buscando' : 'R$ 2.500.000,00'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-green-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-up'"></mat-icon>
+                        <span class="font-semibold text-sm text-green-600">4,17%</span>
+                        <span class="text-gray-600 text-sm">Periodo Ant. <br>
+                        R$2.400.000,00
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/6 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between rounded-tl-md rounded-tr-md px-6 py-2 bg-orange-600">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'heroicons_outline:shopping-cart'"></mat-icon>
+                            <span class="text-white font-bold pl-4 text-sm">VOL. PROMOÇÃO</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-orange-600">{{loading ? 'Buscando' : 'R$ 6.300.000,00'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-green-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-up'"></mat-icon>
+                        <span class="font-semibold text-sm text-green-600">5,00%</span>
+                        <span class="text-gray-600 text-sm">Periodo Ant. <br>
+                        R$6.000.000,00
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/6 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between rounded-tl-md rounded-tr-md px-6 py-2 bg-green-600">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'awesome_solid:bars'"></mat-icon>
+                                <span class="text-white font-bold pl-4 text-sm">MARGEM PRO.</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-green-600">{{loading ? 'Buscando' : '10,30%'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-red-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-down'"></mat-icon>
+                        <span class="font-semibold text-sm text-red-600">-0,70%</span>
+                        <span class="text-gray-600 text-sm">Periodo Ant.<br>
+                        11,00%
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/6 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between bg-gray-600 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'heroicons_outline:tag'"></mat-icon>
+                            <span class="text-white font-bold pl-4 text-sm">CASH MARGIN</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-gray-600">{{loading ? 'Buscando' : '257.500,00%'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-red-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-down'"></mat-icon>
+                        <span class="font-semibold text-red-600 text-sm">-2,46% pp</span>
+                        <span class="text-gray-600 text-sm">Periodo Ant. <br>
+                        11,00%
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/6 mt-4 md:mt-0 md:pr-2 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between bg-yellow-500 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'heroicons_outline:currency-dollar'"></mat-icon>
+                            <span class="text-white font-bold pl-4 text-sm">ACORDO</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-yellow-500">{{loading ? 'Buscando' : 'R$ 150.000,00'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-green-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-up'"></mat-icon>
+                        <span class="font-semibold text-sm text-green-600">11,11%</span>
+                        <span class="text-yellow-500 text-sm">Periodo Ant. <br>
+                        R$ 135.000,00
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:min-w-1/6 mt-4 md:mt-0 h-full">
+                <div class="flex flex-col rounded-md shadow-default h-full min-h-30">
+                    <div class="flex items-center justify-between bg-red-400 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <div class="flex items-center">
+                            <mat-icon class="icon-size-8 text-white"
+                                      [svgIcon]="'awesome_solid:hands-helping'"></mat-icon>
+                            <span class="text-white font-bold pl-4 text-sm">ITENS PESQUISADOS</span>
+                        </div>
+                    </div>
+                    <div class="py-4 h-full">
+                        <h3 class="text-center text-red-400">{{loading ? 'Buscando' : '150'}}</h3>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+                        <mat-icon class="icon-size-8 text-green-600 pr-2"
+                                  [svgIcon]="'heroicons_outline:arrow-up'"></mat-icon>
+                        <span class="font-semibold text-sm">4,17%</span>
+                        <span class="text-gray-600 text-sm">INDICE COMPETIDADE
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="md:flex md:flex-col md:flex-auto md:min-w-0 w-full px-4 xl:px-0 sm:py-6 xl:py-8">
+        <div class="relative">
+            <div>
+                <div class="sticky header">
+                    <div class="bg-primary-900 text-white p-4 z-999" id="{{'header1'}}">
+                        Promoções
+                    </div>
+                </div>
+                <div class="flex  overflow-x-auto overflow-x-custom max-w-max">
+
+                    <div class="flex flex-col  max-w-max ">
+
+                        <ng-container>
+                            <div class="flex items-center h-15 font-semibold bg-white z-99 ">
+
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    COD.
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Descrição</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Venda Regular</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Venda Pro.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MA%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MP%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Custo Regular</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Valor Regular</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Custo Promo.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Valor Promo.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Cash%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>V$%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Qtda%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Qtda. regular</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Qt. Promo.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Canibal</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MR%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Data</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>V. Venda</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Concorrente</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container>
+                            <div class="flex items-center h-15">
+
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>127212</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>ABSO. SEMPRE LIVRE L8P7</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>R$ 101,07</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>R$ 426,81</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>27,31%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>17,99%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 1,76</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 3,79</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 1,50</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15 ">
+                                    <span>R$ 2,69</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>178,19%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>322%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>495%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>27</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>159</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span class="text-red-600">16</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>3,72</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>08/01/2023</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 2,99</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>Super ABC</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container>
+                            <div class="flex items-center h-15">
+
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>122523</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>PAPEL HIGI. MILI 60MT 4UN NEUTRO</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>R$ 368,30</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>R$ 968,06</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>30,24%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>15,87%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 3,35</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 6,35</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 3,35</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15 ">
+                                    <span>R$ 4,99</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>37,94%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>163%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>234%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>58</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>194</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span class="text-red-600">15</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>2,00%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>02/01/2023</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 4,75</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>Carrefour</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="sticky header">
+                    <div class="bg-primary-900 text-white p-4 z-999" id="{{'header1'}}">
+                        Totais
+                    </div>
+                </div>
+                <div class="flex  overflow-x-auto overflow-x-custom max-w-max">
+
+                    <div class="flex flex-col  max-w-max ">
+
+                        <ng-container>
+                            <div class="flex items-center h-15 font-semibold bg-white z-99 ">
+
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    T.Venda Reg.
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>T.Venda Pro.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MA%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MP%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>CSH%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>V$%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>QT%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Qt. Regular</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Qt. Promo.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>V. Regular</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Venda + Pro.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MA%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MP%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>CSH%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>V$%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>QT%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Qt.Venda</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Qt.Promo.</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>Canibal</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MR%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>MR% + CSH%</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container>
+                            <div class="flex items-center h-15">
+
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>R$ 469,37</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>R$ 1.394,87</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>29,61%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>16,52%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15">
+                                    <span>65,80%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>297,18%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>316,54%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>85</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>353</span>
+                                </div>
+                                <div class="flex items-center border-r border-b text-sm min-w-40 max-w-40 px-4 h-15 ">
+                                    <span>R$ 4.260,21</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>R$ 5.089,35</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>27,56%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>24,05%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>4,25%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>19,46%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>59,04%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>437</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>695</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15 text-red-600">
+                                    <span>31</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>2,77%</span>
+                                </div>
+                                <div class="flex items-center border-r border-b min-w-40 max-w-40 px-2 h-15">
+                                    <span>7,02</span>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

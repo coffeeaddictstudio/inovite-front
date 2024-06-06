@@ -1,0 +1,111 @@
+<div class="relative flex flex-col w-full h-full">
+
+    <!-- Dismiss button -->
+    <ng-container>
+        <div class="absolute top-0 right-0 pt-4 pr-4">
+            <button
+                mat-icon-button
+                [matDialogClose]="undefined">
+                <mat-icon
+                    class="text-secondary"
+                    [svgIcon]="'heroicons_outline:x'"></mat-icon>
+            </button>
+        </div>
+    </ng-container>
+
+    <!-- Content -->
+    <div class="flex flex-col sm:flex-row flex-auto items-center sm:items-start px-8 pt-8">
+
+        <ng-container>
+            <div class="flex flex-col items-center sm:items-start mt-4 sm:mt-0 sm:pr-8 space-y-1 text-center sm:text-left">
+
+                <!-- Title -->
+                <ng-container>
+                    <h2 class="text-2xl font-medium text-primary-900 tracking-tight leading-7 my-0 truncate">Adicionar nova empresa!</h2>
+                </ng-container>
+
+                <!-- Message -->
+                <ng-container>
+                    <div class="text-secondary">Aqui você adiciona novas empresas.</div>
+                </ng-container>
+            </div>
+        </ng-container>
+
+    </div>
+
+    <div class="flex items-center sm:items-start px-8">
+        <ng-container [formGroup]="enterpriseForm">
+            <div class="items-center justify-between mt-4 mb-2 w-full">
+                <mat-form-field class="w-full md:w-12/12">
+                    <mat-label>Nome Fantasia: <small class="text-red-600"
+                                                     *ngIf="enterpriseForm.touched && enterpriseForm.get('name').hasError('required')">Campo
+                        obrigatório</small></mat-label>
+                    <input matInput disabled [formControlName]="'name'" type="text" [maxLength]="255"
+                           [placeholder]="'Inovite'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-12/12">
+                    <mat-label>CNPJ:</mat-label>
+                    <input matInput disabled [formControlName]="'cnpj'" type="text" [maxLength]="20"
+                           [placeholder]="'22.222.0001-00'" >
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-12/12">
+                    <mat-label>Endereço:</mat-label>
+                    <input matInput disabled [formControlName]="'address'" type="text" [maxLength]="255"
+                           [placeholder]="'Endereço'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-12/12">
+                    <mat-label>Numero:</mat-label>
+                    <input matInput disabled [formControlName]="'number'" type="text" [maxLength]="11"
+                           [placeholder]="'99999'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-12/12">
+                    <mat-label>Bairro:</mat-label>
+                    <input matInput disabled [formControlName]="'district'" type="text" [maxLength]="120"
+                           [placeholder]="'Bairro'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-6/12 pr-2">
+                    <mat-label>Cidade:</mat-label>
+                    <input matInput disabled [formControlName]="'city'" type="text" [maxLength]="255"
+                           [placeholder]="'Rio de Janeiro'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-6/12 pr-2">
+                    <mat-label>Estado:</mat-label>
+                    <input matInput disabled [formControlName]="'state'" type="text" [maxLength]="255"
+                           [placeholder]="'Rio de Janeiro'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-6/12 pr-2">
+                    <mat-label>País:</mat-label>
+                    <input matInput disabled [formControlName]="'country'" type="text" [maxLength]="255"
+                           [placeholder]="'Brasil'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-6/12 pr-2">
+                    <mat-label>Email:</mat-label>
+                    <input matInput disabled [formControlName]="'email'" type="text" [maxLength]="255"
+                           [placeholder]="'admin@inovite.com.br'">
+                </mat-form-field>
+                <mat-form-field class="w-full md:w-6/12 pr-2">
+                    <mat-label>Telefone:</mat-label>
+                    <input matInput disabled [formControlName]="'phone'" type="tel" [maxLength]="255"
+                           [placeholder]="'99 99999 9999'">
+                </mat-form-field>
+            </div>
+        </ng-container>
+    </div>
+
+    <!-- Actions -->
+    <ng-container>
+        <div class="flex items-center justify-center sm:justify-end px-8 py-4 space-x-2">
+            <!-- Confirm -->
+            <ng-container>
+                <button
+                    mat-flat-button
+                    class="bg-primary-900 text-white"
+                    (click)="save()">
+                    Criar
+                </button>
+            </ng-container>
+
+        </div>
+    </ng-container>
+
+</div>

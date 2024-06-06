@@ -1,0 +1,80 @@
+<!-- Button -->
+<div class="w-max py-2 ml-2 cursor-pointer" [matMenuTriggerFor]="userActions">
+    <div class="flex items-center w-full py-2">
+        <img class="h-8 w-auto" src="/assets/icons/user-icon.svg" alt="">
+        <div class="hidden md:flex flex-col w-full mx-3 overflow-hidden">
+            <div class="w-full font-semibold whitespace-nowrap overflow-ellipsis overflow-hidden leading-normal" [ngClass]="{'text-white': dark, 'text-gray-600': !dark}">Admin</div>
+        </div>
+        <span class="flex items-center icon ml-2 md:ml-0">
+            <mat-icon class="icon-size-3.5" [ngClass]="{'text-white': dark, 'text-blue-500': !dark}" svgIcon="awesome_solid:chevron-down"></mat-icon>
+        </span>
+    </div>
+</div>
+
+<mat-menu [xPosition]="'before'" #userActions="matMenu" class="default-menu">
+    <button mat-menu-item disabled>
+        <span class="flex flex-col leading-none">
+            <span class="font-medium">Admin</span>
+            <span class="mt-1 text-sm text-secondary font-medium">{{user?.name}}</span>
+        </span>
+    </button>
+    <mat-divider class="my-2"></mat-divider>
+
+    <ng-container>
+        <button [routerLink]="'/dashboard'" mat-menu-item>
+            <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:chart-line'"></mat-icon>
+            <span class="text-sm">Dashboard</span>
+        </button>
+    </ng-container>
+
+    <ng-container>
+    <button [routerLink]="'/empresas'" mat-menu-item>
+        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:chart-line'"></mat-icon>
+        <span class="text-sm">Empresa: {{user?.enterprise?.name}}</span>
+    </button>
+    </ng-container>
+
+    <ng-container>
+        <button [routerLink]="'/dashboard'" mat-menu-item>
+            <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:user-shield'"></mat-icon>
+            <span class="text-sm">Painel Administrativo</span>
+        </button>
+    </ng-container>
+
+    <button [routerLink]="'/configuracoes'" mat-menu-item >
+        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:cog'"></mat-icon>
+        <span class="text-sm">Configurações</span>
+    </button>
+
+    <button [routerLink]="'/compradores'" mat-menu-item >
+        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:cog'"></mat-icon>
+        <span class="text-sm">Cadastros de Compradores</span>
+    </button>
+
+    <!--    <button mat-menu-item (click)="redirectCollaborator()">-->
+    <!--        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:users'"></mat-icon>-->
+    <!--        <span class="text-sm">Colaboradores</span>-->
+    <!--    </button>-->
+
+    <!--    <button mat-menu-item (click)="redirectManageAccess()">-->
+    <!--        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:lock'"></mat-icon>-->
+    <!--        <span class="text-sm">Gerenciar acesso</span>-->
+    <!--    </button>-->
+
+    <!--    <button mat-menu-item (click)="redirectPayCheck()">-->
+    <!--        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:money-check'"></mat-icon>-->
+    <!--        <span class="text-sm">Contracheque</span>-->
+    <!--    </button>-->
+
+    <!--    <button mat-menu-item (click)="redirectBenefit()">-->
+    <!--        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:money-check'"></mat-icon>-->
+    <!--        <span class="text-sm">Benefícios</span>-->
+    <!--    </button>-->
+
+    <mat-divider class="my-2"></mat-divider>
+    <button mat-menu-item (click)="signOut()">
+        <mat-icon class="icon-size-4.5" [svgIcon]="'awesome_solid:sign-out-alt'"></mat-icon>
+        <span class="text-sm">Sair</span>
+    </button>
+</mat-menu>
+

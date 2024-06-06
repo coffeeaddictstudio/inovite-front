@@ -1,0 +1,13 @@
+text-one-line{
+    white-space: nowrap!important;
+}
+.adjusting-margin{
+    margin-left: -6%;
+}
+
+@media only screen and (max-width: 600px) {
+    .adjusting-margin2{
+        margin-left: -6% !important;
+    }
+}
+

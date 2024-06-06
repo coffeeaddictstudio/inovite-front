@@ -1,0 +1,100 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md shadow-default h-full min-h-100">
+    <div class="flex">
+        <div class="flex items-center justify-between bg-green-600 rounded-tl-md rounded-tr-md px-6 py-2 w-1/2">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <mat-icon class="icon-size-8 text-white"
+                              [svgIcon]="'heroicons_outline:tag'"></mat-icon>
+                    <span class="text-white font-bold pl-4">MRGENS REALIZADO X META</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center justify-between bg-gray-600 rounded-tl-md rounded-tr-md px-6 py-2 w-1/2">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <mat-icon class="icon-size-8 text-white"
+                              [svgIcon]="'heroicons_outline:currency-dollar'"></mat-icon>
+                    <span class="text-white font-bold pl-4">CASH MARGIN   REALIZADO X META</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loaded" class="py-4 px-8">
+        <div style="overflow: hidden; margin-top: -185px;">
+            <apx-chart
+                [series]="chartOptionsMargemRealizado.series"
+                [chart]="chartOptionsMargemRealizado.chart"
+                [xaxis]="chartOptionsMargemRealizado.xaxis"
+                [markers]="chartOptionsMargemRealizado.markers"
+                [stroke]="chartOptionsMargemRealizado.stroke"
+                [yaxis]="chartOptionsMargemRealizado.yaxis"
+                [dataLabels]="chartOptionsMargemRealizado.dataLabels"
+                [title]="chartOptionsMargemRealizado.title"
+                [fill]="chartOptionsMargemRealizado.fill"
+                [tooltip]="chartOptionsMargemRealizado.tooltip"
+                [legend]="chartOptionsMargemRealizado.legend"
+                [grid]="chartOptionsMargemRealizado.grid"
+             ></apx-chart>
+            <apx-chart
+                [series]="chartOptionsMargemMeta.series"
+                [chart]="chartOptionsMargemMeta.chart"
+                [xaxis]="chartOptionsMargemMeta.xaxis"
+                [markers]="chartOptionsMargemMeta.markers"
+                [stroke]="chartOptionsMargemMeta.stroke"
+                [yaxis]="chartOptionsMargemMeta.yaxis"
+                [dataLabels]="chartOptionsMargemMeta.dataLabels"
+                [title]="chartOptionsMargemMeta.title"
+                [fill]="chartOptionsMargemMeta.fill"
+                [tooltip]="chartOptionsMargemMeta.tooltip"
+                [legend]="chartOptionsMargemMeta.legend"
+                [grid]="chartOptionsMargemMeta.grid"
+            ></apx-chart>
+            <apx-chart
+                [series]="chartOptionsCashRealizado.series"
+                [chart]="chartOptionsCashRealizado.chart"
+                [xaxis]="chartOptionsCashRealizado.xaxis"
+                [markers]="chartOptionsCashRealizado.markers"
+                [stroke]="chartOptionsCashRealizado.stroke"
+                [yaxis]="chartOptionsCashRealizado.yaxis"
+                [dataLabels]="chartOptionsCashRealizado.dataLabels"
+                [title]="chartOptionsCashRealizado.title"
+                [fill]="chartOptionsCashRealizado.fill"
+                [tooltip]="chartOptionsCashRealizado.tooltip"
+                [legend]="chartOptionsCashRealizado.legend"
+                [grid]="chartOptionsCashRealizado.grid"
+            ></apx-chart>
+        </div>
+
+        <p class="text-center"><span style="background-color: #475569; padding-left: 1px; padding-right: 10px; border-radius: 10px; color: #475569">b</span> %Cash realizado <span style="background-color: #16a34a; padding-left: 1px; padding-right: 10px; border-radius: 10px; color: #16a34a; margin-left: 5px;">b</span> Margem Realizada <span><span style="margin-left: 5px; background-color: #1e3a8a; padding-left: 1px; padding-right: 10px; border-radius: 10px; color: #1e3a8a">b</span> Margem Meta </span></p>
+    </div>
+
+    <div *ngIf="!loaded" class="p-4">
+        <div class="h-50 w-full bg-gray-200 rounded"></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="w-11/12 flex justify-around">
+                <div *ngFor="let fake of [].constructor(months)" class="flex flex-col justify-center items-center text-center">
+                    <span class="h-4 rounded bg-gray-200 w-1/2"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <img class="w-7 text-blue-900" src="assets/icons/growth-blue.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">VENDAS REALIZADO X META</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

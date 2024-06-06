@@ -1,0 +1,299 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md shadow-default h-full min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <span class="text-blue-900 font-bold pl-4">% RESULTADO DETALHADO POR LOJA</span>
+        </div>
+    </div>
+
+    <div *ngIf="loaded" class="py-4">
+        <div>
+            <div class="sticky header">
+                <div class="bg-primary-900 text-white p-4 z-999" id="{{'header'}}">
+                    Loja 1001
+                </div>
+                <div class="flex items-center h-15 font-semibold bg-white z-99">
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Venda</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Volume</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem Anterior</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc. Cash</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Participação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="flex flex-col overflow-x-auto overflow-x-custom max-w-max">
+
+                    <ng-container>
+                        <div class="flex items-center h-15">
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>6,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span class="text-red-600">-2,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>23,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>24,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>2,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>1,00%</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="sticky header">
+                <div class="bg-primary-900 text-white p-4 z-999" id="{{'header'}}">
+                    Loja 1002
+                </div>
+                <div class="flex items-center h-15 font-semibold bg-white z-99">
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Venda</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Volume</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem Anterior</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc. Cash</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Participação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="flex flex-col overflow-x-auto overflow-x-custom max-w-max">
+
+                    <ng-container>
+                        <div class="flex items-center h-15">
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>2,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span class="text-red-600">-4,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>24,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>23,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span class="text-red-600">-4,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span class="text-red-600">-1,00%</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="sticky header">
+                <div class="bg-primary-900 text-white p-4 z-999" id="{{'header'}}">
+                    Loja 1003
+                </div>
+                <div class="flex items-center h-15 font-semibold bg-white z-99">
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Venda</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Volume</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem Anterior</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc. Cash</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Participação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="flex flex-col overflow-x-auto overflow-x-custom max-w-max">
+
+                    <ng-container>
+                        <div class="flex items-center h-15">
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>5,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>2,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>24,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>23,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>3,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>1,00%</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="sticky header">
+                <div class="bg-primary-900 text-white p-4 z-999" id="{{'header'}}">
+                    Loja 1004
+                </div>
+                <div class="flex items-center h-15 font-semibold bg-white z-99">
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Venda</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Volume</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem Anterior</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc. Cash</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Participação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="flex flex-col overflow-x-auto overflow-x-custom max-w-max">
+
+                    <ng-container>
+                        <div class="flex items-center h-15">
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>8,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>5,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>25,05%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>24,50%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>6%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>3%</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="sticky header">
+                <div class="bg-primary-900 text-white p-4 z-999" id="{{'header'}}">
+                    Loja 1005
+                </div>
+                <div class="flex items-center h-15 font-semibold bg-white z-99">
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Venda</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc.Volume</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem Anterior</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>Margem</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Cresc. Cash</span>
+                    </div>
+                    <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                        <span>%Participação</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="flex flex-col overflow-x-auto overflow-x-custom max-w-max">
+
+                    <ng-container>
+                        <div class="flex items-center h-15">
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>7,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span class="text-red-600">-3,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>22,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>22,50%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>7,00%</span>
+                            </div>
+                            <div class="flex items-center border-r border-b text-sm min-w-60 max-w-60 px-4 h-15">
+                                <span>2,00%</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!loaded" class="p-4">
+        <div class="h-50 w-full bg-gray-200 rounded"></div>
+        <div class="flex items-center justify-between mt-4">
+            <div class="w-11/12 flex justify-around">
+                <div *ngFor="let fake of [].constructor(12)" class="flex flex-col justify-center items-center text-center">
+                    <span class="h-4 rounded bg-gray-200 w-1/2"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                    <span class="h-4 rounded bg-gray-200 w-1/2 mt-1"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <img class="w-7 text-blue-900" src="assets/icons/growth-blue.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">% RESULTADO DETALHADO POR LOJA</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

@@ -1,0 +1,312 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md h-full min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 shadow-default py-2">
+        <div class="flex items-center">
+            <img class="w-7 text-blue-900" src="assets/icons/dashboard-service-order-icon.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">Ordem de serviço</span>
+        </div>
+        <div>
+            <span [routerLink]="'/atividades'"
+                  (click)="appService.registerTracking('Dashboard', 'Ver mais', {card: 'Ordem de serviço'})"
+                  class="text-blue-500 text-sm font-bold cursor-pointer">Ver mais</span>
+        </div>
+    </div>
+
+    <div *ngIf="loaded" class="flex flex-col items-center justify-between h-full padding-adjusting min-h-85">
+        <div class="flex flex-col md:flex-row w-full">
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:mr-2 my-2 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 md:px-12 px-4">Status</span>
+                    <div *ngIf="statusChart"
+                         class="flex flex-col items-center justify-center h-full padding-adjusting min-h-85">
+                        <div class="w-full h-full flex flex-col md:flex-row items-center px-6">
+                            <div class="w-1/2 flex h-full items-center justify-between">
+                                <apx-chart *ngIf="statusChart.series.length && verifyQuantity(statusChart.series)"
+                                           class="flex flex-auto items-center justify-center w-full h-full"
+                                           [chart]="statusChart.chart"
+                                           [colors]="statusChart.colors"
+                                           [labels]="statusChart.labels"
+                                           [plotOptions]="statusChart.plotOptions"
+                                           [series]="statusChart.series"
+                                           [states]="statusChart.states"
+                                           [tooltip]="statusChart.tooltip">
+                                </apx-chart>
+
+                                <div class="flex flex-auto items-center justify-center w-full h-full" *ngIf="!verifyQuantity(statusChart.series)">
+                                    <span class="w-72 h-72 flex justify-center items-center rounded-full bg-gray-200">
+                                        <span class="w-40 h-40 rounded-full bg-white"></span>
+                                     </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col w-1/2 h-full justify-around py-10">
+                                <ng-container *ngFor="let item of statusChart?.series; let i = index">
+                                    <div class="flex items-center w-full">
+                                        <div>
+                                            <div class="h-5 w-5 rounded-full"
+                                                 [ngStyle]="{'background-color': statusChart.colors[i]}">
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col w-full justify-start text-sm pl-3">
+                                            <div>
+                                                <span>{{statusChart?.labels[i]}}</span>
+                                                <span
+                                                    class="text-blue-900 font-bold ml-2">{{statusChart?.series[i]}}</span>
+                                            </div>
+                                            <span
+                                                class="font-bold">{{getPercentage(statusChart?.series[i], totalStatus)}}
+                                                %</span>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:ml-2 my-2 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 md:px-12 px-4">Abertas e em andamento</span>
+                    <div *ngIf="openAndInProgressChart"
+                         class="flex flex-col items-center justify-center h-full padding-adjusting min-h-85">
+                        <div class="w-full h-full flex flex-col md:flex-row items-center px-6">
+                            <div class="w-1/2 flex h-full items-center justify-center">
+                                <apx-chart *ngIf="openAndInProgressChart.series.length && verifyQuantity(openAndInProgressChart.series)"
+                                           class="flex flex-auto items-center justify-center w-full h-full"
+                                           [chart]="openAndInProgressChart.chart"
+                                           [colors]="openAndInProgressChart.colors"
+                                           [labels]="openAndInProgressChart.labels"
+                                           [plotOptions]="openAndInProgressChart.plotOptions"
+                                           [series]="openAndInProgressChart.series"
+                                           [states]="openAndInProgressChart.states"
+                                           [tooltip]="openAndInProgressChart.tooltip">
+                                </apx-chart>
+                                <div class="flex flex-auto items-center justify-center w-full h-full" *ngIf="!verifyQuantity(openAndInProgressChart.series)">
+                                    <span class="w-72 h-72 flex justify-center items-center rounded-full bg-gray-200">
+                                        <span class="w-40 h-40 rounded-full bg-white"></span>
+                                     </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col w-1/2 h-full justify-around py-10">
+                                <ng-container *ngFor="let item of openAndInProgressChart?.series; let i = index">
+                                    <div class="flex items-center w-full">
+                                        <div>
+                                            <div class="h-5 w-5 rounded-full"
+                                                 [ngStyle]="{'background-color': openAndInProgressChart.colors[i]}"></div>
+                                        </div>
+                                        <div class="flex flex-col w-full justify-self-center text-sm pl-3">
+                                            <div>
+                                                <span>{{openAndInProgressChart?.labels[i]}}</span>
+                                                <span
+                                                    class="text-blue-900 font-bold ml-2">{{openAndInProgressChart?.series[i]}}</span>
+                                            </div>
+                                            <span
+                                                class="font-bold">{{getPercentage(openAndInProgressChart?.series[i], totalPrazo)}}
+                                                %</span>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <div class="flex justify-start">
+                                    <span class="text-md font-bold mr-2">Total:</span>
+                                    <span class="text-md text-blue-900 font-bold">{{totalPrazo}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row w-full">
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:mr-2 md:mt-2 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 px-12">Local do serviço</span>
+                    <div *ngIf="spacesChart">
+                        <apx-chart
+                            [series]="spacesChart.series"
+                            [chart]="spacesChart.chart"
+                            [dataLabels]="spacesChart.dataLabels"
+                            [plotOptions]="spacesChart.plotOptions"
+                            [yaxis]="spacesChart.yaxis"
+                            [fill]="spacesChart.fill"
+                            [stroke]="spacesChart.stroke"
+                            [tooltip]="spacesChart.tooltip"
+                            [xaxis]="spacesChart.xaxis"
+                        ></apx-chart>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:ml-2 md:mt-2 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 px-12">Tipo de ação</span>
+                    <div *ngIf="typeActionsChart">
+                        <apx-chart
+                            [series]="typeActionsChart.series"
+                            [chart]="typeActionsChart.chart"
+                            [dataLabels]="typeActionsChart.dataLabels"
+                            [plotOptions]="typeActionsChart.plotOptions"
+                            [yaxis]="typeActionsChart.yaxis"
+                            [fill]="typeActionsChart.fill"
+                            [stroke]="typeActionsChart.stroke"
+                            [tooltip]="typeActionsChart.tooltip"
+                            [xaxis]="typeActionsChart.xaxis"
+                        ></apx-chart>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="!loaded" class="p-4">
+        <div class="flex flex-col md:flex-row w-full">
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:mr-2 my-2 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 md:px-12 px-4">Status</span>
+                    <div class="flex flex-col items-center justify-center h-full padding-adjusting min-h-85">
+                        <div class="w-full h-full flex flex-col md:flex-row items-center px-6">
+                            <div class="w-1/2 flex h-full items-center justify-center">
+                                <span class="w-36 h-36 flex justify-center items-center rounded-full bg-gray-200">
+                                    <span class="w-20 h-20 rounded-full bg-white"></span>
+                                </span>
+                            </div>
+                            <div class="flex flex-col w-1/2 h-full justify-around py-10">
+                                <ng-container>
+                                    <div class="flex flex-col items-center w-full">
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:ml-2 my-2 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 md:px-12 px-4">Abertas e em andamento</span>
+                    <div class="flex flex-col items-center justify-center h-full padding-adjusting min-h-85">
+                        <div class="w-full h-full flex flex-col md:flex-row items-center px-6">
+                            <div class="w-1/2 flex items-center justify-center">
+                                <span class="w-36 h-36 flex justify-center items-center rounded-full bg-gray-200">
+                                    <span class="w-20 h-20 rounded-full bg-white"></span>
+                                </span>
+                            </div>
+                            <div class="flex flex-col w-1/2 h-full justify-around py-10">
+                                <ng-container>
+                                    <div class="flex flex-col items-center w-full">
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-center w-full mt-3">
+                                            <div>
+                                                <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                                            </div>
+                                            <div class="flex flex-col w-full text-sm pl-3">
+                                                <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                                                <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row w-full">
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:mr-2 md:mt-2 my-2 p-6 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 px-4 mb-4">Local do serviço</span>
+                    <div class="h-72 w-full bg-gray-200 rounded"></div>
+                </ng-container>
+            </div>
+
+            <div class="flex flex-col w-full md:w-1/2 shadow-default md:ml-2 my-2 p-6 rounded-lg">
+                <ng-container>
+                    <span class="font-bold text-gray-700 text-lg pt-4 px-4 mb-4">Tipo de ação</span>
+                    <div class="h-72 w-full bg-gray-200 rounded"></div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <img class="w-7 text-blue-900" src="assets/icons/growth-blue.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">Ordem de serviço</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

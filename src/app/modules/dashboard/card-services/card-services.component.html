@@ -1,0 +1,50 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md shadow-default h-full">
+    <div class="flex items-center justify-between bg-blue-800 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <span class="text-white font-bold">Parceiros cipa</span>
+            <span class="text-white text-sm pl-4">Conheça serviços parceiros com diversos beneficios!</span>
+        </div>
+        <div>
+            <span [routerLink]="'/servicos'" (click)="appService.registerTracking('Dashboard', 'Ver mais', {card: 'Serviços Cipa'})" class="text-white text-sm font-bold cursor-pointer">Ver mais</span>
+        </div>
+    </div>
+
+    <div class="px-4 z-0">
+        <carousel *ngIf="services && services.length" [cellsToShow]="cellsToShow" [cellWidth]="cellWidth + '%'" [height]="200">
+
+            <div *ngFor="let service of services" class="carousel-cell py-4" [routerLink]="['/servicos', service.id]">
+                <div class="relative flex flex-col cursor-pointer shadow-md border-0 h-full rounded-lg hover:shadow-lg bg-card transform transition-shadow ease-in-out duration-150">
+                    <div class="text-center font-semibold text-xs py-1.5 uppercase bg-blue-50 text-blue-800">
+                        <span *ngIf="service?.category; else notCategory">{{service.category}}</span>
+                        <ng-template #notCategory>sem categoria</ng-template>
+                    </div>
+
+                    <div class="flex flex-col items-center py-2 shadow-none filter-info">
+                        <div class="flex items-center justify-center rounded-full">
+                            <img class="w-full max-h-20" [src]="appService.generateFileUrl(service.thumbnail_path)" alt="">
+                        </div>
+                        <div class="text-center font-medium text-secondary my-3">{{service.title}}</div>
+                    </div>
+                </div>
+            </div>
+
+        </carousel>
+
+        <div *ngIf="!services || services && !services.length" class="h-50 flex items-center justify-center">
+            <mat-spinner *ngIf="loading" [color]="'primary'" [diameter]="35" [mode]="'indeterminate'"></mat-spinner>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-48">
+    <div class="flex items-center justify-between bg-blue-800 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <span class="text-white font-bold">Parceiros cipa</span>
+            <span class="text-white text-sm pl-4">Conheça serviços parceiros com diversos beneficios!</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

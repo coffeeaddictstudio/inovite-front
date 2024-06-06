@@ -1,0 +1,104 @@
+<div *ngIf="hasPermission" class="flex flex-col rounded-md shadow-default h-full min-h-100">
+    <div class="flex items-center justify-between bg-blue-900 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <mat-icon class="icon-size-8 text-white"
+                      [svgIcon]="'heroicons_outline:shopping-cart'"></mat-icon>
+            <span class="text-white font-bold pl-4">VENDAS REALIZADO X META</span>
+        </div>
+    </div>
+
+    <div *ngIf="loaded" class="flex flex-col items-center justify-center h-full padding-adjusting min-h-85">
+        <div class="w-full flex items-center py-2 text-center">
+            <p class="font-semibold w-full">Semana Atual: <span class="text-blue-500">R$ 30.720.000,00</span>
+                <span class="pl-2"></span>
+            Semana Anterior: <span class="text-green-500">R$ 28.100.000,00  </span></p>
+        </div>
+        <div class="w-full flex items-center px-6">
+            <apx-chart
+                class="flex flex-auto items-center justify-center w-full h-full"
+                [chart]="areaChartOptions.chart"
+                [series]="areaChartData"
+                [xaxis]="areaChartOptions.xaxis"
+                [tooltip]="areaChartOptions.tooltip"
+            ></apx-chart>
+        </div>
+    </div>
+
+    <div *ngIf="!loaded" class="flex flex-col items-center justify-center h-full min-h-85">
+        <div class="w-full flex items-center px-6">
+            <div class="w-1/2 flex items-center justify-center">
+
+                <span class="w-36 h-36 flex justify-center items-center rounded-full bg-gray-200">
+                    <span class="w-20 h-20 rounded-full bg-white"></span>
+                </span>
+
+            </div>
+            <div class="w-1/2 flex flex-col">
+                <div class="flex items-center">
+                    <div>
+                        <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                    </div>
+                    <div class="flex flex-col w-full text-sm pl-3">
+                        <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                        <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                    </div>
+                </div>
+
+                <div class="flex items-center mt-3">
+                    <div>
+                        <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                    </div>
+                    <div class="flex flex-col w-full text-sm pl-3">
+                        <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                        <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                    </div>
+                </div>
+
+                <div class="flex items-center mt-3">
+                    <div>
+                        <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                    </div>
+                    <div class="flex flex-col w-full text-sm pl-3">
+                        <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                        <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                    </div>
+                </div>
+
+                <div class="flex items-center w-full mt-3">
+                    <div>
+                        <div class="h-5 w-5 rounded-full bg-gray-200"></div>
+                    </div>
+                    <div class="flex flex-col w-full text-sm pl-3">
+                        <span class="bg-gray-200 h-4 w-6/12 rounded"></span>
+                        <span class="bg-gray-200 h-4 w-10/12 rounded mt-1"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full flex items-center justify-between mt-6">
+            <div class="flex flex-col w-1/2 justify-center items-center">
+                <span class="bg-gray-200 h-5 w-7/12 rounded"></span>
+                <span class="bg-gray-200 h-5 w-8/12 rounded mt-1"></span>
+            </div>
+
+            <div class="flex flex-col w-1/2 justify-center items-center">
+                <span class="bg-gray-200 h-5 w-7/12 rounded"></span>
+                <span class="bg-gray-200 h-5 w-8/12 rounded mt-1"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!hasPermission" class="bg-white flex flex-col w-full h-full shadow-default rounded-md min-h-100">
+    <div class="flex items-center justify-between bg-gray-100 rounded-tl-md rounded-tr-md px-6 py-2">
+        <div class="flex items-center">
+            <img class="w-8 text-blue-900" src="assets/icons/businessman-blue.svg" alt="">
+            <span class="text-blue-900 font-bold pl-4">VENDAS REALIZADO X META</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center w-full h-full">
+        <span class="text-gray-500 text-sm">Você não possui permissão para acessar essa funcionalidade!</span>
+    </div>
+</div>

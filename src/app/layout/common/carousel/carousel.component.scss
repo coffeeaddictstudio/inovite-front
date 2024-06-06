@@ -1,0 +1,41 @@
+carousel {
+    width: 100%;
+
+    .bg-carousel {
+        background-color: #005385;
+    }
+
+    .description {
+        word-wrap: break-word!important;
+        overflow: hidden!important;
+        position: relative!important;
+        height: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    .description p{
+        word-wrap: break-word!important;
+        overflow: hidden!important;
+        position: relative!important;
+        height: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+}
+.textMessage > p{
+    text-shadow: 1px 1px 2px black, 0 0 25px gray, 0 0 5px darkgray;
+}
+.textMobile{
+    text-shadow: 1px 1px 2px black, 0 0 25px gray, 0 0 5px darkgray;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.buttonMobile{
+}
+
