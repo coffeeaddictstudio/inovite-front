@@ -1,0 +1,41 @@
+<div class="flex flex-col border-2 border-dashed border-gray-400 rounded-lg my-2">
+    <div class="bg-gray-200 rounded-tl-lg rounded-tr-lg text-center py-2 text-gray-500 font-semibold">{{formatTitle()}}</div>
+    <div *ngIf="uploading" class="flex flex-col justify-center items-center">
+        <mat-progress-spinner
+            class="flex my-4"
+            [diameter]="60"
+            [color]="'primary'"
+            [mode]="'determinate'"
+            [value]="progress">
+        </mat-progress-spinner>
+        <span class="text-center mb-4">Carregando {{progress}}%</span>
+    </div>
+    <div *ngIf="!uploading" class="flex flex-col items-center justify-center cursor-pointer my-auto min-h-40 overflow-auto">
+
+        <ngx-dropzone (click)="onMobileSelect($event)" #dropzone class="border-0 w-full h-auto min-h-full" [maxFileSize]="env.sizeFiles" [accept]="extensions" [expandable]="true" [multiple]="multiple" (change)="onSelect($event)">
+            <ngx-dropzone-label>
+                <div class="flex flex-col items-center justify-center text-center">
+                    <mat-icon class="icon-size-10 text-gray-500" [svgIcon]="'awesome_solid:image'"></mat-icon>
+                    <small class="text-center mt-3 text-gray-500">Clique aqui para <br> selecionar o arquivo</small>
+                </div>
+            </ngx-dropzone-label>
+
+            <ng-container *ngIf="!multiple && file">
+                <ngx-dropzone-preview *ngIf="file" class="p-0 border border-dashed border-gray-400" [removable]="true" (removed)="onRemove()">
+                    <ngx-dropzone-label class="w-full h-full">
+                        <img class="h-full" [src]="appService.generateFileUrl(file['url'])"  alt="">
+                    </ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ng-container>
+
+            <ng-container *ngIf="multiple && files">
+                <ngx-dropzone-preview *ngFor="let file of files;let i = index" class="p-0 border border-dashed border-gray-400" [removable]="true" (removed)="onRemove(i)">
+                    <ngx-dropzone-label class="w-full h-full">
+                        <img class="h-full" [src]="appService.generateFileUrl(file['url'])"  alt="">
+                    </ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ng-container>
+
+        </ngx-dropzone>
+    </div>
+</div>

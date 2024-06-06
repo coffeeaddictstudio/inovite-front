@@ -1,0 +1,79 @@
+cipafacil-vertical-navigation {
+
+    /* Futuristic appearance overrides */
+    &.cipafacil-vertical-navigation-appearance-futuristic {
+
+        /* Aside, basic, collapsable, group */
+        cipafacil-vertical-navigation-aside-item,
+        cipafacil-vertical-navigation-basic-item,
+        cipafacil-vertical-navigation-collapsable-item,
+        cipafacil-vertical-navigation-group-item {
+            margin-bottom: 4px;
+
+            > .cipafacil-vertical-navigation-item-wrapper {
+                margin: 0 16px;
+
+                .cipafacil-vertical-navigation-item {
+                    padding-left: 16px;
+                    padding-right: 16px;
+                }
+            }
+        }
+
+        /* Collapsable */
+        cipafacil-vertical-navigation-collapsable-item {
+
+            > .cipafacil-vertical-navigation-item-children {
+
+                .cipafacil-vertical-navigation-item {
+                    padding: 10px 16px;
+                }
+            }
+
+            /* 1st level */
+            .cipafacil-vertical-navigation-item-children {
+
+                .cipafacil-vertical-navigation-item {
+                    padding-left: 56px;
+                }
+
+                /* 2nd level */
+                .cipafacil-vertical-navigation-item-children {
+
+                    .cipafacil-vertical-navigation-item {
+                        padding-left: 72px;
+                    }
+
+                    /* 3rd level */
+                    .cipafacil-vertical-navigation-item-children {
+
+                        .cipafacil-vertical-navigation-item {
+                            padding-left: 88px;
+                        }
+
+                        /* 4th level */
+                        .cipafacil-vertical-navigation-item-children {
+
+                            .cipafacil-vertical-navigation-item {
+                                padding-left: 104px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Navigation items common */
+        .cipafacil-vertical-navigation-item {
+            border-radius: 6px;
+        }
+
+        /* Aside */
+        .cipafacil-vertical-navigation-aside-wrapper {
+
+            > cipafacil-vertical-navigation-aside-item {
+                padding: 8px 0;
+            }
+        }
+    }
+}

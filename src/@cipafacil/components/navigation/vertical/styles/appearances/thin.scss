@@ -1,0 +1,97 @@
+/* Variables */
+$cipafacil-vertical-navigation-thin-width: 80;
+
+cipafacil-vertical-navigation {
+
+    /* Thin appearance overrides */
+    &.cipafacil-vertical-navigation-appearance-thin {
+        width: #{$cipafacil-vertical-navigation-thin-width}px;
+        min-width: #{$cipafacil-vertical-navigation-thin-width}px;
+        max-width: #{$cipafacil-vertical-navigation-thin-width}px;
+
+        /* Left positioned */
+        &.cipafacil-vertical-navigation-position-left {
+
+            &.cipafacil-vertical-navigation-mode-side {
+                margin-left: -#{$cipafacil-vertical-navigation-thin-width}px;
+            }
+
+            &.cipafacil-vertical-navigation-opened {
+                margin-left: 0;
+            }
+        }
+
+        /* Right positioned */
+        &.cipafacil-vertical-navigation-position-right {
+
+            &.cipafacil-vertical-navigation-mode-side {
+                margin-right: -#{$cipafacil-vertical-navigation-thin-width}px;
+            }
+
+            &.cipafacil-vertical-navigation-opened {
+                margin-right: 0;
+            }
+
+            .cipafacil-vertical-navigation-aside-wrapper {
+                left: auto;
+                right: #{$cipafacil-vertical-navigation-thin-width}px;
+            }
+        }
+
+        /* Wrapper */
+        .cipafacil-vertical-navigation-wrapper {
+
+            /* Content */
+            .cipafacil-vertical-navigation-content {
+
+                > cipafacil-vertical-navigation-aside-item,
+                > cipafacil-vertical-navigation-basic-item {
+                    flex-direction: column;
+                    justify-content: center;
+                    height: 64px;
+                    min-height: 64px;
+                    max-height: 64px;
+                    padding: 0 16px;
+
+                    .cipafacil-vertical-navigation-item-wrapper {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .cipafacil-vertical-navigation-item {
+                            justify-content: center;
+                            padding: 12px;
+                            border-radius: 4px;
+
+                            .cipafacil-vertical-navigation-item-icon {
+                                margin: 0;
+                            }
+
+                            .cipafacil-vertical-navigation-item-arrow,
+                            .cipafacil-vertical-navigation-item-badge-content,
+                            .cipafacil-vertical-navigation-item-title-wrapper {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                > cipafacil-vertical-navigation-collapsable-item {
+                    display: none
+                }
+
+                > cipafacil-vertical-navigation-group-item {
+
+                    > .cipafacil-vertical-navigation-item-wrapper {
+                        display: none
+                    }
+                }
+            }
+        }
+
+        /* Aside wrapper */
+        .cipafacil-vertical-navigation-aside-wrapper {
+            left: #{$cipafacil-vertical-navigation-thin-width}px;
+        }
+    }
+}

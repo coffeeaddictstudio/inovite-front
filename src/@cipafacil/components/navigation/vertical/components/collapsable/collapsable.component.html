@@ -1,0 +1,99 @@
+<div
+    class="cipafacil-vertical-navigation-item-wrapper"
+    [class.cipafacil-vertical-navigation-item-has-subtitle]="!!item.subtitle"
+    [ngClass]="item.classes?.wrapper">
+
+    <div
+        class="cipafacil-vertical-navigation-item"
+        [ngClass]="{'cipafacil-vertical-navigation-item-disabled': item.disabled}"
+        (click)="toggleCollapsable()">
+
+        <!-- Icon -->
+        <mat-icon
+            class="cipafacil-vertical-navigation-item-icon"
+            [ngClass]="item.classes?.icon"
+            *ngIf="item.icon"
+            [svgIcon]="item.icon"></mat-icon>
+
+        <!-- Title & Subtitle -->
+        <div class="cipafacil-vertical-navigation-item-title-wrapper">
+            <div class="cipafacil-vertical-navigation-item-title">
+                <span [ngClass]="item.classes?.title">
+                    {{item.title}}
+                </span>
+            </div>
+            <div
+                class="cipafacil-vertical-navigation-item-subtitle"
+                *ngIf="item.subtitle">
+                <span [ngClass]="item.classes?.subtitle">
+                    {{item.subtitle}}
+                </span>
+            </div>
+        </div>
+
+        <!-- Badge -->
+        <div
+            class="cipafacil-vertical-navigation-item-badge"
+            *ngIf="item.badge">
+            <div
+                class="cipafacil-vertical-navigation-item-badge-content"
+                [ngClass]="item.badge.classes">
+                {{item.badge.title}}
+            </div>
+        </div>
+
+        <!-- Arrow -->
+        <mat-icon
+            class="cipafacil-vertical-navigation-item-arrow icon-size-4"
+            [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+
+    </div>
+
+</div>
+
+<div
+    class="cipafacil-vertical-navigation-item-children"
+    *ngIf="!isCollapsed"
+    @expandCollapse>
+
+    <ng-container *ngFor="let item of item.children; trackBy: trackByFn">
+
+        <!-- Skip the hidden items -->
+        <ng-container *ngIf="(item.hidden && !item.hidden(item)) || !item.hidden">
+
+            <!-- Basic -->
+            <cipafacil-vertical-navigation-basic-item
+                *ngIf="item.type === 'basic'"
+                [item]="item"
+                [name]="name"></cipafacil-vertical-navigation-basic-item>
+
+            <!-- Collapsable -->
+            <cipafacil-vertical-navigation-collapsable-item
+                *ngIf="item.type === 'collapsable'"
+                [item]="item"
+                [name]="name"
+                [autoCollapse]="autoCollapse"></cipafacil-vertical-navigation-collapsable-item>
+
+            <!-- Divider -->
+            <cipafacil-vertical-navigation-divider-item
+                *ngIf="item.type === 'divider'"
+                [item]="item"
+                [name]="name"></cipafacil-vertical-navigation-divider-item>
+
+            <!-- Group -->
+            <cipafacil-vertical-navigation-group-item
+                *ngIf="item.type === 'group'"
+                [item]="item"
+                [name]="name"></cipafacil-vertical-navigation-group-item>
+
+            <!-- Spacer -->
+            <cipafacil-vertical-navigation-spacer-item
+                *ngIf="item.type === 'spacer'"
+                [item]="item"
+                [name]="name"></cipafacil-vertical-navigation-spacer-item>
+
+        </ng-container>
+
+    </ng-container>
+
+</div>

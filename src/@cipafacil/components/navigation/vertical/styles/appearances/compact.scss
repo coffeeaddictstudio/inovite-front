@@ -1,0 +1,107 @@
+/* Variables */
+$cipafacil-vertical-navigation-compact-width: 120;
+
+cipafacil-vertical-navigation {
+
+    /* Compact appearance overrides */
+    &.cipafacil-vertical-navigation-appearance-compact {
+        width: #{$cipafacil-vertical-navigation-compact-width}px;
+        min-width: #{$cipafacil-vertical-navigation-compact-width}px;
+        max-width: #{$cipafacil-vertical-navigation-compact-width}px;
+
+        /* Left positioned */
+        &.cipafacil-vertical-navigation-position-left {
+
+            /* Side mode */
+            &.cipafacil-vertical-navigation-mode-side {
+                margin-left: -#{$cipafacil-vertical-navigation-compact-width}px;
+            }
+
+            /* Opened */
+            &.cipafacil-vertical-navigation-opened {
+                margin-left: 0;
+            }
+        }
+
+        /* Right positioned */
+        &.cipafacil-vertical-navigation-position-right {
+
+            /* Side mode */
+            &.cipafacil-vertical-navigation-mode-side {
+                margin-right: -#{$cipafacil-vertical-navigation-compact-width}px;
+            }
+
+            /* Opened */
+            &.cipafacil-vertical-navigation-opened {
+                margin-right: 0;
+            }
+
+            /* Aside wrapper */
+            .cipafacil-vertical-navigation-aside-wrapper {
+                left: auto;
+                right: #{$cipafacil-vertical-navigation-compact-width}px;
+            }
+        }
+
+        /* Wrapper */
+        .cipafacil-vertical-navigation-wrapper {
+
+            /* Content */
+            .cipafacil-vertical-navigation-content {
+
+                > cipafacil-vertical-navigation-aside-item,
+                > cipafacil-vertical-navigation-basic-item {
+
+                    .cipafacil-vertical-navigation-item {
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 96px;
+                        min-height: 96px;
+                        max-height: 96px;
+                        padding: 0 16px;
+
+                        .cipafacil-vertical-navigation-item-icon {
+                            margin-right: 0;
+                            margin-bottom: 8px;
+                            @apply icon-size-8;
+                        }
+
+                        .cipafacil-vertical-navigation-item-title-wrapper {
+
+                            .cipafacil-vertical-navigation-item-title {
+                                text-align: center;
+                                font-weight: 500;
+                            }
+
+                            .cipafacil-vertical-navigation-item-subtitle {
+                                display: none !important;
+                            }
+                        }
+
+                        .cipafacil-vertical-navigation-item-badge {
+                            position: absolute;
+                            top: 12px;
+                            left: 64px;
+                        }
+                    }
+                }
+
+                > cipafacil-vertical-navigation-collapsable-item {
+                    display: none
+                }
+
+                > cipafacil-vertical-navigation-group-item {
+
+                    > .cipafacil-vertical-navigation-item-wrapper {
+                        display: none
+                    }
+                }
+            }
+        }
+
+        /* Aside wrapper */
+        .cipafacil-vertical-navigation-aside-wrapper {
+            left: #{$cipafacil-vertical-navigation-compact-width}px;
+        }
+    }
+}

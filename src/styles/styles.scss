@@ -1,0 +1,199 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Import/write your custom styles here.
+/*  @ Styles from this file will override 'vendors.scss' and CipaFacil's base styles.
+/* ----------------------------------------------------------------------------------------------------- */
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !important;
+}
+
+.shadow-default {
+    box-shadow: 2px 3px 20px 0 rgba(0,0,0,0.15);
+}
+
+.bg-default {
+    background-color: #009CDE !important;
+}
+
+.text-default {
+    color: #009CDE !important;
+}
+
+.border-default {
+    border-color: #009CDE;
+}
+
+.hover\:bg-default:hover {
+    background-color: #009CDE !important;
+    border-color: #009CDE !important;
+}
+
+.text-label {
+    font-weight: 500;
+    color: rgba(var(--cipafacil-text-default-rgb), var(--tw-text-opacity)) !important;
+    font-size: inherit;
+    padding-bottom: 0.5rem;
+}
+
+ngx-dropzone {
+    background: transparent !important;
+}
+
+ngx-dropzone-preview {
+    z-index: 22;
+}
+
+ngx-dropzone-remove-badge {
+    z-index: 24;
+    opacity: 1 !important;
+}
+
+.cdk-overlay-pane.dialog-window {
+    min-width: 60vw;
+
+    .mat-dialog-container {
+        // padding: 0 !important;
+    }
+}
+
+.cdk-overlay-pane.dialog-post {
+    min-width: 60vw;
+
+    .mat-dialog-container {
+        padding: 0 !important;
+    }
+}
+
+.cdk-overlay-pane.dialog-contact {
+
+    min-width: 100vw;
+    text-align: center;
+
+    @screen md {
+        min-width: max-content;
+    }
+}
+
+.cdk-overlay-pane.overflow-hidden {
+    .mat-dialog-container {
+        overflow: hidden !important;
+    }
+}
+
+.cdk-overlay-pane.h-auto {
+    .mat-dialog-container {
+        height: auto !important;
+    }
+}
+
+.cdk-overlay-pane.full-screen {
+    .mat-dialog-container {
+        border-radius: 0 !important;
+    }
+}
+
+.cdk-overlay-pane.full-screen,
+.cdk-overlay-pane.dialog-default {
+    .mat-dialog-container {
+        padding: 0 !important;
+    }
+}
+
+.cdk-overlay-pane.sm-screen {
+    width: 100vw;
+
+    .mat-dialog-container {
+        max-height: 100vh;
+
+        @screen md {
+            max-height: auto;
+        }
+    }
+
+    @screen md {
+        width: auto;
+    }
+}
+
+.cdk-overlay-pane {
+    .mat-dialog-container {
+        max-height: 100vh;
+
+        @screen md {
+            max-height: auto;
+        }
+    }
+}
+
+.mat-snack-bar-container {
+    &.success {
+        @apply bg-green-500 #{'!important'};
+
+        .mat-simple-snackbar {
+            span {
+                @apply text-gray-800 font-medium;
+            }
+        }
+    }
+
+    &.error {
+        @apply bg-red-400 #{'!important'};
+
+        .mat-simple-snackbar {
+            span {
+                @apply text-gray-800 font-medium;
+            }
+        }
+    }
+}
+
+ion-content.transparent {
+    background: transparent !important;
+}
+
+.max-dialog-screen {
+    max-height: 92vh !important;
+}
+
+.overflow-y-custom {
+    &::-webkit-scrollbar-track
+    {
+        border-radius: 0;
+        @apply bg-primary-900 bg-opacity-10;
+    }
+
+    &::-webkit-scrollbar {
+        height: 8px;
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply bg-primary-900 rounded;
+        border: none;
+    }
+}
+
+.overflow-x-custom {
+    &::-webkit-scrollbar-track
+    {
+        border-radius: 0;
+        @apply bg-primary-900 bg-opacity-10;
+    }
+
+    &::-webkit-scrollbar {
+        height: 8px;
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply bg-primary-900 rounded;
+        border: none;
+    }
+}
+
+.cdk-overlay-pane.dialog-preview {
+    @apply w-screen min-w-screen max-w-screen h-screen min-h-screen max-h-screen #{'!important'};
+
+    .mat-dialog-container {
+        @apply p-0 rounded-none bg-black bg-opacity-80 #{'!important'};
+    }
+}

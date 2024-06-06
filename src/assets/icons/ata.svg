@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="71" height="72" viewBox="0 0 71 72">
+  <g id="_3319612_chart_graph_led_statistics_stats_icon" data-name="3319612_chart_graph_led_statistics_stats_icon" transform="translate(0 0.48)">
+    <ellipse id="Elipse_16" data-name="Elipse 16" cx="35.5" cy="36" rx="35.5" ry="36" transform="translate(0 -0.48)" fill="#9ccb5b"/>
+    <g id="Grupo_2840" data-name="Grupo 2840" transform="translate(9.879 14.888)">
+      <path id="Caminho_3832" data-name="Caminho 3832" d="M60.278,16.367V49.019a2.253,2.253,0,0,1-2.224,2.267H11.124A2.253,2.253,0,0,1,8.9,49.019V16.367A2.253,2.253,0,0,1,11.124,14.1h46.93A2.253,2.253,0,0,1,60.278,16.367Z" transform="translate(-8.9 -14.1)" fill="#404a4c"/>
+      <rect id="Retângulo_4385" data-name="Retângulo 4385" width="45.483" height="31.291" transform="translate(2.948 2.948)" fill="#00a8ea"/>
+      <rect id="Retângulo_4386" data-name="Retângulo 4386" width="14.852" height="5.102" transform="translate(18.318 37.186)" fill="#676767"/>
+      <path id="Caminho_3833" data-name="Caminho 3833" d="M42.4,51.4H24.39a8.187,8.187,0,0,0-6.59,3.4H48.884A7.987,7.987,0,0,0,42.4,51.4Z" transform="translate(-7.71 -9.112)" fill="#404a4c"/>
+      <g id="Grupo_2839" data-name="Grupo 2839" transform="translate(5.036 8.843)">
+        <g id="Grupo_2837" data-name="Grupo 2837" transform="translate(22.421 4.875)">
+          <g id="Grupo_2833" data-name="Grupo 2833" transform="translate(3.174)">
+            <rect id="Retângulo_4387" data-name="Retângulo 4387" width="15.759" height="1.927" fill="#fff"/>
+            <rect id="Retângulo_4388" data-name="Retângulo 4388" width="15.759" height="1.927" transform="translate(0 3.968)" fill="#fff"/>
+          </g>
+          <g id="Grupo_2834" data-name="Grupo 2834" transform="translate(3.174 7.936)">
+            <rect id="Retângulo_4389" data-name="Retângulo 4389" width="15.759" height="1.927" fill="#fff"/>
+          </g>
+          <g id="Grupo_2835" data-name="Grupo 2835">
+            <rect id="Retângulo_4390" data-name="Retângulo 4390" width="1.927" height="1.927" fill="#fff"/>
+            <rect id="Retângulo_4391" data-name="Retângulo 4391" width="1.927" height="1.927" transform="translate(0 3.968)" fill="#fff"/>
+          </g>
+          <g id="Grupo_2836" data-name="Grupo 2836" transform="translate(0 7.936)">
+            <rect id="Retângulo_4392" data-name="Retângulo 4392" width="1.927" height="1.927" fill="#fff"/>
+          </g>
+        </g>
+        <g id="Grupo_2838" data-name="Grupo 2838">
+          <rect id="Retângulo_4393" data-name="Retângulo 4393" width="7.823" height="4.081" transform="translate(0 19.521) rotate(-90)" fill="#fdef34"/>
+          <path id="Caminho_3834" data-name="Caminho 3834" d="M17.141,32.3v7.709H15.1Z" transform="translate(-13.106 -20.509)" fill="#231f20" opacity="0.1"/>
+          <rect id="Retângulo_4394" data-name="Retângulo 4394" width="11.677" height="4.081" transform="translate(5.278 19.537) rotate(-90)" fill="#f7a90b"/>
+          <rect id="Retângulo_4395" data-name="Retângulo 4395" width="15.645" height="4.081" transform="translate(10.442 19.553) rotate(-90)" fill="#e8dcca"/>
+          <rect id="Retângulo_4396" data-name="Retângulo 4396" width="19.5" height="4.081" transform="translate(15.72 19.568) rotate(-90)" fill="#fff"/>
+          <path id="Caminho_3835" data-name="Caminho 3835" d="M21.841,28.8V40.477H19.8Z" transform="translate(-12.478 -20.977)" fill="#231f20" opacity="0.1"/>
+          <path id="Caminho_3836" data-name="Caminho 3836" d="M26.441,25.4V40.932H24.4Z" transform="translate(-11.863 -21.432)" fill="#231f20" opacity="0.1"/>
+          <path id="Caminho_3837" data-name="Caminho 3837" d="M31.041,21.9V41.4H29Z" transform="translate(-11.248 -21.9)" fill="#231f20" opacity="0.1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

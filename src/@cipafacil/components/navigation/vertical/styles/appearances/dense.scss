@@ -1,0 +1,159 @@
+/* Variables */
+$cipafacil-vertical-navigation-width: 280;
+$cipafacil-vertical-navigation-dense-width: 72;
+
+cipafacil-vertical-navigation {
+
+    /* Dense appearance overrides */
+    &.cipafacil-vertical-navigation-appearance-dense {
+
+        &:not(.cipafacil-vertical-navigation-mode-over) {
+            width: #{$cipafacil-vertical-navigation-dense-width}px;
+            min-width: #{$cipafacil-vertical-navigation-dense-width}px;
+            max-width: #{$cipafacil-vertical-navigation-dense-width}px;
+
+            /* Left positioned */
+            &.cipafacil-vertical-navigation-position-left {
+
+                /* Side mode */
+                &.cipafacil-vertical-navigation-mode-side {
+                    margin-left: -#{$cipafacil-vertical-navigation-dense-width}px;
+                }
+
+                /* Opened */
+                &.cipafacil-vertical-navigation-opened {
+                    margin-left: 0;
+                }
+            }
+
+            /* Right positioned */
+            &.cipafacil-vertical-navigation-position-right {
+
+                /* Side mode */
+                &.cipafacil-vertical-navigation-mode-side {
+                    margin-right: -#{$cipafacil-vertical-navigation-dense-width}px;
+                }
+
+                /* Opened */
+                &.cipafacil-vertical-navigation-opened {
+                    margin-right: 0;
+                }
+
+                /* Aside wrapper */
+                .cipafacil-vertical-navigation-aside-wrapper {
+                    left: auto;
+                    right: #{$cipafacil-vertical-navigation-dense-width}px;
+                }
+
+                &.cipafacil-vertical-navigation-hover {
+
+                    .cipafacil-vertical-navigation-aside-wrapper {
+                        left: auto;
+                        right: #{$cipafacil-vertical-navigation-width}px;
+                    }
+                }
+            }
+        }
+
+        /* Wrapper */
+        .cipafacil-vertical-navigation-wrapper {
+
+            /* Content */
+            .cipafacil-vertical-navigation-content {
+
+                cipafacil-vertical-navigation-aside-item,
+                cipafacil-vertical-navigation-basic-item,
+                cipafacil-vertical-navigation-collapsable-item,
+                cipafacil-vertical-navigation-group-item {
+
+                    .cipafacil-vertical-navigation-item {
+                        width: #{$cipafacil-vertical-navigation-width}px;
+                        min-width: #{$cipafacil-vertical-navigation-width}px;
+                        max-width: #{$cipafacil-vertical-navigation-width}px;
+
+                        .cipafacil-vertical-navigation-item-arrow,
+                        .cipafacil-vertical-navigation-item-badge,
+                        .cipafacil-vertical-navigation-item-title-wrapper {
+                            transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+                        }
+                    }
+                }
+
+                cipafacil-vertical-navigation-group-item {
+
+                    &:first-of-type {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+
+        &:not(.cipafacil-vertical-navigation-hover):not(.cipafacil-vertical-navigation-mode-over) {
+
+            /* Wrapper */
+            .cipafacil-vertical-navigation-wrapper {
+
+                /* Content */
+                .cipafacil-vertical-navigation-content {
+
+                    .cipafacil-vertical-navigation-item {
+                        padding: 12px 24px;
+
+                        .cipafacil-vertical-navigation-item-arrow,
+                        .cipafacil-vertical-navigation-item-badge,
+                        .cipafacil-vertical-navigation-item-title-wrapper {
+                            white-space: nowrap;
+                        }
+
+                        .cipafacil-vertical-navigation-item-arrow,
+                        .cipafacil-vertical-navigation-item-badge-content,
+                        .cipafacil-vertical-navigation-item-title-wrapper {
+                            opacity: 0;
+                        }
+                    }
+
+                    cipafacil-vertical-navigation-collapsable-item {
+
+                        .cipafacil-vertical-navigation-item-children {
+                            display: none;
+                        }
+                    }
+
+                    cipafacil-vertical-navigation-group-item {
+
+                        > .cipafacil-vertical-navigation-item-wrapper {
+
+                            .cipafacil-vertical-navigation-item {
+
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 20px;
+                                    width: 23px;
+                                    border-top-width: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Aside wrapper */
+        .cipafacil-vertical-navigation-aside-wrapper {
+            left: #{$cipafacil-vertical-navigation-dense-width}px;
+        }
+
+        /* Hover */
+        &.cipafacil-vertical-navigation-hover {
+
+            .cipafacil-vertical-navigation-wrapper {
+                width: #{$cipafacil-vertical-navigation-width}px;
+            }
+
+            .cipafacil-vertical-navigation-aside-wrapper {
+                left: #{$cipafacil-vertical-navigation-width}px;
+            }
+        }
+    }
+}

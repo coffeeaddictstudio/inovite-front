@@ -1,0 +1,131 @@
+/* Variables */
+$cipafacil-drawer-width: 320;
+
+cipafacil-drawer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: #{$cipafacil-drawer-width}px;
+    min-width: #{$cipafacil-drawer-width}px;
+    max-width: #{$cipafacil-drawer-width}px;
+    z-index: 300;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+    @apply bg-card;
+
+    /* Animations */
+    &.cipafacil-drawer-animations-enabled {
+        transition-duration: 400ms;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-property: visibility, margin-left, margin-right, transform, width, max-width, min-width;
+
+        .cipafacil-drawer-content {
+            transition-duration: 400ms;
+            transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition-property: width, max-width, min-width;
+        }
+    }
+
+    /* Over mode */
+    &.cipafacil-drawer-mode-over {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        /* Fixed mode */
+        &.cipafacil-drawer-fixed {
+            position: fixed;
+        }
+    }
+
+    /* Left position */
+    &.cipafacil-drawer-position-left {
+
+        /* Side mode */
+        &.cipafacil-drawer-mode-side {
+            margin-left: -#{$cipafacil-drawer-width}px;
+
+            &.cipafacil-drawer-opened {
+                margin-left: 0;
+            }
+        }
+
+        /* Over mode */
+        &.cipafacil-drawer-mode-over {
+            left: 0;
+            transform: translate3d(-100%, 0, 0);
+
+            &.cipafacil-drawer-opened {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Content */
+        .cipafacil-drawer-content {
+            left: 0;
+        }
+    }
+
+    /* Right position */
+    &.cipafacil-drawer-position-right {
+
+        /* Side mode */
+        &.cipafacil-drawer-mode-side {
+            margin-right: -#{$cipafacil-drawer-width}px;
+
+            &.cipafacil-drawer-opened {
+                margin-right: 0;
+            }
+        }
+
+        /* Over mode */
+        &.cipafacil-drawer-mode-over {
+            right: 0;
+            transform: translate3d(100%, 0, 0);
+
+            &.cipafacil-drawer-opened {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Content */
+        .cipafacil-drawer-content {
+            right: 0;
+        }
+    }
+
+    /* Content */
+    .cipafacil-drawer-content {
+        position: absolute;
+        display: flex;
+        flex: 1 1 auto;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        @apply bg-card;
+    }
+}
+
+/* Overlay */
+.cipafacil-drawer-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 299;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    /* Fixed mode */
+    &.cipafacil-drawer-overlay-fixed {
+        position: fixed;
+    }
+
+    /* Transparent overlay */
+    &.cipafacil-drawer-overlay-transparent {
+        background-color: transparent;
+    }
+}
